@@ -19,7 +19,7 @@ export class UsereditComponent implements OnInit {
     private router: Router,
     private userService: UserService
   ) { 
-      this.user=userService.getIdentity();
+      this.user=<User><unknown>userService.getIdentity();
       this.identity=this.user;
       this.token=userService.getToken();
   }
@@ -30,21 +30,23 @@ export class UsereditComponent implements OnInit {
     console.log(this.user)
      this.userService.updateUser(this.user).subscribe(
        res=>{
-  //       if(!res.user){
-  //         this.status = 'error';
+         console.log(res.user)
+        if(!res.user){
+          this.status = 'error';
           
-  //       }else{
-  //         this.status = 'success';
-  //         localStorage.setItem('user', JSON.stringify(this.user));
-  //         this.identity= this.user;
-  //         this.uploadService.makeFileRequest(this.url+'update-avatar/'+this.user._id, [], this.filesToUpload, this.token, 'avatar')
-  //                   .then((result:any)=>{
-  //                     console.log(result);
-  //                     this.user.avatar = result.user.avatar;
-  //                     localStorage.setItem('identity', JSON.stringify(this.user));
-  //                   })
+        }else{
+          this.status = 'success';
+          localStorage.setItem('user', JSON.stringify(this.user));
+          this.identity= this.user;
+          console.log(this.identity)
+          // this.uploadService.makeFileRequest(this.url+'update-avatar/'+this.user._id, [], this.filesToUpload, this.token, 'avatar')
+          //           .then((result:any)=>{
+          //             console.log(result);
+          //             this.user.avatar = result.user.avatar;
+          //             localStorage.setItem('identity', JSON.stringify(this.user));
+          //           })
 
-  //       }
+        }
 
        },
       err=>{

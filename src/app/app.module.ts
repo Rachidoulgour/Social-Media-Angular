@@ -16,7 +16,8 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { AuthenticGuard } from './authentic.guard';
 import {TokenService} from './services/token.service';
 import { UsersComponent } from './components/users/users.component';
-import { UsereditComponent } from './components/useredit/useredit.component'
+import { UsereditComponent } from './components/useredit/useredit.component';
+import { PublicationComponent } from './components/publication/publication.component'
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { UsereditComponent } from './components/useredit/useredit.component'
     LoginComponent,
     ProfilComponent,
     UsersComponent,
-    UsereditComponent
+    UsereditComponent,
+    PublicationComponent
   ],
   imports: [
     BrowserModule,
