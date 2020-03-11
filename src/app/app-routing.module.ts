@@ -8,6 +8,7 @@ import { LoginComponent} from './components/login/login.component';
 import { ProfilComponent} from './components/profil/profil.component';
 import { AuthenticGuard } from './authentic.guard';
 import { UsersComponent } from './components/users/users.component';
+import { UsereditComponent } from './components/useredit/useredit.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'profil',
     component: ProfilComponent,
+    canActivate: [AuthenticGuard]
+  },
+  {
+    path: 'editar-perfil',
+    component: UsereditComponent,
     canActivate: [AuthenticGuard]
   },
   {

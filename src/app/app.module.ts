@@ -15,7 +15,8 @@ import { ProfilComponent } from './components/profil/profil.component';
 
 import { AuthenticGuard } from './authentic.guard';
 import {TokenService} from './services/token.service';
-import { UsersComponent } from './components/users/users.component'
+import { UsersComponent } from './components/users/users.component';
+import { UsereditComponent } from './components/useredit/useredit.component'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UsersComponent } from './components/users/users.component'
     SignupComponent,
     LoginComponent,
     ProfilComponent,
-    UsersComponent
+    UsersComponent,
+    UsereditComponent
   ],
   imports: [
     BrowserModule,
