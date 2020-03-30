@@ -1,0 +1,8 @@
+<p>publicate works!</p>
+<div class="card-body">
+    <form #newPubForm="ngForm" (ngSubmit)="onSubmit($event)">
+        <textarea name="text" #text="ngModel" [(ngModel)]="publication.text"></textarea>
+        <input type="file" name="" placeholder="sube la imagen" (change)="fileChangeEvent($event)">
+        <button type="submit">Subir</button>
+    </form>
+</div>

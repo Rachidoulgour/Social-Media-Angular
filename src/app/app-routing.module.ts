@@ -9,6 +9,8 @@ import { ProfilComponent} from './components/profil/profil.component';
 import { AuthenticGuard } from './authentic.guard';
 import { UsersComponent } from './components/users/users.component';
 import { UsereditComponent } from './components/useredit/useredit.component';
+import { PublicationComponent } from './components/publication/publication.component';
+import { PublicateComponent } from './components/publicate/publicate.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,16 @@ const routes: Routes = [
   {
     path: 'editar-perfil',
     component: UsereditComponent,
+    canActivate: [AuthenticGuard]
+  },
+  {
+    path: 'publications',
+    component: PublicationComponent,
+    canActivate: [AuthenticGuard]
+  },
+  {
+    path: 'publicar',
+    component: PublicateComponent,
     canActivate: [AuthenticGuard]
   },
   {

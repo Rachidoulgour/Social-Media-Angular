@@ -30,8 +30,8 @@ export class UsereditComponent implements OnInit {
     console.log(this.user)
      this.userService.updateUser(this.user).subscribe(
        res=>{
-         console.log(res.user)
-        if(!res.user){
+         console.log(res)
+        if(!res){
           this.status = 'error';
           
         }else{

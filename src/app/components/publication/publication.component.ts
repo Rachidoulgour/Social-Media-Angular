@@ -25,31 +25,34 @@ export class PublicationComponent implements OnInit {
     private userService: UserService,
     private publicationService: PublicationService
   ) { 
-    this.identity = this.userService.getIdentity();
-    this.token = this.userService.getToken();
+    // this.identity = this.userService.getIdentity();
+    // this.user=this.identity;
+    // this.token = this.userService.getToken();
     
     this.page = 1;
   }
 
   ngOnInit() {
+    //this.getPublication(this.token,this.user._id,this.page);
   }
 
-  getPublication(user, page, adding=false){
-    this.publicationService.getPublicationsUser(user, this.token,page).subscribe(
-      res=>{
-        console.log(res);
+  // getPublication(token,user, page, adding=false){
+  //   console.log(user)
+  //   this.publicationService.getPublicationsUser(token,user,page).subscribe(
+  //     res=>{
+  //       console.log(res);
         
 
-      },
-      err=>{
-        const errorMessage = err;
-        console.log(errorMessage);
-        if(errorMessage!=null){
-          this.status= 'error'
-        }
-      }
-    )
-  }
+  //     },
+  //     err=>{
+  //       const errorMessage = err;
+  //       console.log(errorMessage);
+  //       if(errorMessage!=null){
+  //         this.status= 'error'
+  //       }
+  //     }
+  //   )
+  // }
 
 
 }
