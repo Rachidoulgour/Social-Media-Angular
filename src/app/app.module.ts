@@ -18,7 +18,8 @@ import {TokenService} from './services/token.service';
 import { UsersComponent } from './components/users/users.component';
 import { UsereditComponent } from './components/useredit/useredit.component';
 import { PublicationComponent } from './components/publication/publication.component';
-import { PublicateComponent } from './components/publicate/publicate.component'
+import { PublicateComponent } from './components/publicate/publicate.component';
+import { TimelineComponent } from './components/timeline/timeline.component'
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PublicateComponent } from './components/publicate/publicate.component'
     UsersComponent,
     UsereditComponent,
     PublicationComponent,
-    PublicateComponent
+    PublicateComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,

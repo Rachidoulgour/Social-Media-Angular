@@ -11,6 +11,7 @@ import { UsersComponent } from './components/users/users.component';
 import { UsereditComponent } from './components/useredit/useredit.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import { PublicateComponent } from './components/publicate/publicate.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path: 'publicar',
     component: PublicateComponent,
+    canActivate: [AuthenticGuard]
+  },
+  {
+    path: 'timeline',
+    component: TimelineComponent,
     canActivate: [AuthenticGuard]
   },
   {

@@ -27,10 +27,10 @@ export class PublicationService {
     return this.http.post(this.URL + '/publication', params, {headers: headers});
   }
 
-  getPublication(token, page=1){
+  getPublications(token, page=1){
     
     let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken()) 
-    return this.http.get(this.URL + 'publication/' +page, {headers: headers});
+    return this.http.get(this.URL + '/publications/' +page, {headers: headers});
   }
 
   getPublicationsUser(token, user_id, page=1){
