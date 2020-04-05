@@ -42,8 +42,15 @@ export class TimelineComponent implements OnInit {
   }
   getPublications(page){
     this.publicationService.getPublications(page).subscribe(
-      res=>{
-        console.log(res)
+      (res:any)=>{
+        this.total=res.total_items;
+        this.pages = res.pages;
+        this.publications=res.publications;
+        console.log(res.publications)
+
+        if(page>this.pages){
+          this.router.navigate(['/home'])
+        }
       },
       err=>{
 

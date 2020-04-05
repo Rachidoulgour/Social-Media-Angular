@@ -19,7 +19,8 @@ import { UsersComponent } from './components/users/users.component';
 import { UsereditComponent } from './components/useredit/useredit.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import { PublicateComponent } from './components/publicate/publicate.component';
-import { TimelineComponent } from './components/timeline/timeline.component'
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { UserComponent } from './components/user/user.component'
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { TimelineComponent } from './components/timeline/timeline.component'
     UsereditComponent,
     PublicationComponent,
     PublicateComponent,
-    TimelineComponent
+    TimelineComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

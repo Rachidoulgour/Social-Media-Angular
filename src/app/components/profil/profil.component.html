@@ -1,7 +1,20 @@
+<p><button [routerLink]="['/publicar']">Publicar</button></p>
 <p><button [routerLink]="['/editar-perfil']">Editar Perfil</button></p>
 <div *ngIf="user">
     {{user.username}}
     {{user.email}}
+</div>
+<div *ngIf="publications">
+<div *ngFor="let publication of publications" class="publication">
+    <div class="publisher">
+        <h4>
+                {{publication.user.username}}
+        </h4>
+    </div>
+    <div class="text">
+        <p>{{publication.text}}</p>
+    </div>
+</div>
 </div>
 
 <router-outlet></router-outlet>

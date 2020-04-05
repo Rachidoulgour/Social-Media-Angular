@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { PublicationService} from '../../services/publication.service'
+import { Publication } from 'src/app/interfaces/publication';
 
 @Component({
   selector: 'app-profil',
@@ -13,14 +15,22 @@ export class ProfilComponent implements OnInit {
   followed: boolean;
   status: string;
   identity: any;
+  token: string;
+  page: number;
+  total: any;
+  pages: any;
+  publications:Publication[];
 
   constructor(
-    private userService:UserService, 
+    private userService:UserService,
+    private publicationService:PublicationService, 
     // private followSrtvice:FollowService,
     private route: ActivatedRoute,
     private router: Router
   ) { 
     this.identity = this.userService.getIdentity();
+    this.token = this.userService.getToken();
+    this.page = 1;
   }
 
   ngOnInit() {
@@ -30,10 +40,12 @@ export class ProfilComponent implements OnInit {
     this.route.params.subscribe(params=>{
       //let id = params['id'];
       let id= this.identity._id
+      let user_id = id;
       //let id = user._id
       console.log(params)
       this.getUser(id);
       //this.getCounters(id);
+      this.getUserPublication(this.token, user_id, this.page)
     }
       
     )
@@ -69,6 +81,19 @@ export class ProfilComponent implements OnInit {
       }
     )
   }
+   getUserPublication(token, user_id, page){
+     this.publicationService.getPublicationsUser(token, user_id, page).subscribe(
+       (res:any)=>{
+        console.log(res);
+        this.total=res.total_items;
+        this.pages = res.pages;
+        this.publications=res.publications;
+       },
+       err=>{
+        console.log(err);
+       }
+     )
+   }
   
 
 }

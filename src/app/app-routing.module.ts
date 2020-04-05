@@ -35,7 +35,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profil',
+    path: 'perfil',
     component: ProfilComponent,
     canActivate: [AuthenticGuard]
   },

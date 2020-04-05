@@ -1,1 +1,15 @@
-<p>timeline works!</p>
+<p><button [routerLink]="['/publicar']">Publicar</button></p>
+<div *ngFor="let publication of publications" class="publication">
+    <div class="publisher">
+        <h4>
+            <a [routerLink]="['/perfil', publication.user._id]">
+                {{publication.user.username}}
+            </a>
+            
+
+        </h4>
+    </div>
+    <div class="text">
+        <p>{{publication.text}}</p>
+    </div>
+</div>

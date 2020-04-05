@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         console.log(res.token)
         localStorage.setItem('user', JSON.stringify(res.user));
         //this.getCounters();
-        //this.router.navigate(['/profil'])
+        this.router.navigate(['/perfil'])
       },
       err=>{
         console.log(err)
