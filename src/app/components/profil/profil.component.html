@@ -1,10 +1,15 @@
-<p><button [routerLink]="['/publicar']">Publicar</button></p>
-<p><button [routerLink]="['/editar-perfil']">Editar Perfil</button></p>
-<div *ngIf="user">
-    {{user.username}}
-    {{user.email}}
+<div class="buttons">
+    <p><button [routerLink]="['/publicar']">Publicar</button></p>
+    <p><button [routerLink]="['/editar-perfil']">Editar Perfil</button></p>
+</div>
+
+<h3>Mis Datos</h3>
+<div *ngIf="user" class="user-data">
+    <p><span class="username">{{user.username}}</span></p> 
+    <p>{{user.email}}</p>
 </div>
 <div *ngIf="publications">
+    <h3>Mis Publicaciones</h3>
 <div *ngFor="let publication of publications" class="publication">
     <div class="publisher">
         <h4>

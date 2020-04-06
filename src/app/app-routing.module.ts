@@ -12,6 +12,7 @@ import { UsereditComponent } from './components/useredit/useredit.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import { PublicateComponent } from './components/publicate/publicate.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'usuario/:id',
+    component: UserComponent,
+    canActivate: [AuthenticGuard]
   },
   {
     path: 'perfil',

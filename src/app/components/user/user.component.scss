@@ -1,0 +1,18 @@
+.publication{
+    border-top: .05rem solid rgb(4, 4, 77);
+    padding: 0rem .5rem;
+    margin: 1rem 5rem;
+    .publisher{
+        color: rgb(4, 4, 77);
+        h4{
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+    .text{
+        border: .05rem solid #7a7a94;
+        margin-bottom: .5rem;
+        padding: 0rem .5rem;
+    }
+}

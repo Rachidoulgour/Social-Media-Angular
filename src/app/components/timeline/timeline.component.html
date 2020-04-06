@@ -2,7 +2,7 @@
 <div *ngFor="let publication of publications" class="publication">
     <div class="publisher">
         <h4>
-            <a [routerLink]="['/perfil', publication.user._id]">
+            <a [routerLink]="['/usuario', publication.user._id]">
                 {{publication.user.username}}
             </a>
             

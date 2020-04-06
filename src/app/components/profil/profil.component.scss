@@ -1,0 +1,55 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 7rem;
+
+    button{
+    all: unset;
+    background-color: rgb(4, 4, 77);
+    color: white;
+    padding: .2rem .5rem;
+    }
+    :hover{
+        background-color: rgb(163, 163, 163);
+        color: rgb(4, 4, 77);
+        cursor: pointer;
+        transition: ease .3s;
+    
+    }
+}
+    
+.user-data{
+    border: .05rem solid rgb(163, 163, 163);
+    margin: 0 7rem;
+    p{
+        color: rgb(4, 4, 77);
+        margin-left: 3rem;
+        
+    }
+    .username{
+        font-size: 1.5rem;
+    }
+}
+h3{
+    margin-left: 8rem;
+    color: rgb(4, 4, 77);
+}
+.publication{
+    border-top: .05rem solid rgb(4, 4, 77);
+    padding: 0rem .5rem;
+    margin: 1rem 8rem;
+    .publisher{
+        color: rgb(4, 4, 77);
+        h4{
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+    .text{
+        border: .05rem solid #7a7a94;
+        margin-bottom: .5rem;
+        padding: 0rem .5rem;
+    }
+}
