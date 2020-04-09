@@ -1,15 +1,19 @@
 <p><button [routerLink]="['/publicar']">Publicar</button></p>
+<div *ngIf="publications">
 <div *ngFor="let publication of publications" class="publication">
     <div class="publisher">
         <h4>
             <a [routerLink]="['/usuario', publication.user._id]">
                 {{publication.user.username}}
             </a>
-            
-
         </h4>
+    </div>
+    <div class="image">
+        <!-- <img src="{{URL + '/pub-image/'+publication.file}}" alt=""> -->
+        <img [src]="'http://localhost:3500/'+publication.file">
     </div>
     <div class="text">
         <p>{{publication.text}}</p>
     </div>
+</div>
 </div>

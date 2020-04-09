@@ -24,6 +24,7 @@ export class TimelineComponent implements OnInit {
   pages;
   itemsPerPage: any;
   publications: Publication[];
+  private URL = 'http://localhost:3500/api';
   
   constructor(
     private route: ActivatedRoute,
@@ -53,7 +54,7 @@ export class TimelineComponent implements OnInit {
         }
       },
       err=>{
-
+        console.log(err)
       }
     )
   }
