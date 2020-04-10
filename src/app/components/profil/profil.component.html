@@ -5,8 +5,13 @@
 
 <h3>Mis Datos</h3>
 <div *ngIf="user" class="user-data">
-    <p><span class="username">{{user.username}}</span></p> 
+    <div class="profile-avatar">
+        <img [src]="'http://localhost:3500/'+user.avatar">
+    </div>
+    <div class="datauser">
+        <p><span class="username">{{user.username}}</span></p> 
     <p>{{user.email}}</p>
+    </div>
 </div>
 <div *ngIf="publications">
     <h3>Mis Publicaciones</h3>

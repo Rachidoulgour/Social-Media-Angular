@@ -6,9 +6,10 @@
             <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
             <input type="password" name="password" [(ngModel)]="user.password" placeholder="Contraseña" required>
             <div>
-            <!-- <img src="{{url+'get-avatar-usr/'+user.avatar}}" alt=""> -->
+            <!-- <img src="{{URL+'get-avatar-usr/'+user.avatar}}" alt=""> -->
+            <img [src]="'http://localhost:3500/'+user.avatar">
             </div>
-            <!-- <input type="file" (change)="fileChangeEvent($event)" placeholder="subir imagen"> -->
+            <input type="file" (change)="fileChangeEvent($event)" placeholder="subir imagen">
             <button type="submit">Editar</button>
         </form>
     </div>

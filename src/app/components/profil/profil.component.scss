@@ -20,15 +20,29 @@
 }
     
 .user-data{
+    display: flex;
     border: .05rem solid rgb(163, 163, 163);
-    margin: 0 7rem;
-    p{
-        color: rgb(4, 4, 77);
-        margin-left: 3rem;
-        
+    margin: 0 10rem;
+    .datauser{
+        p{
+            color: rgb(4, 4, 77);
+            margin-left: 1rem;
+            
+        }
+        .username{
+            font-size: 1.5rem;
+        }
     }
-    .username{
-        font-size: 1.5rem;
+    
+    .profile-avatar{
+
+        img{
+            max-width: 4rem;
+            margin-left: .5rem;
+            padding-top: 1.5rem;
+            
+        }
+        
     }
 }
 h3{
@@ -38,7 +52,7 @@ h3{
 .publication{
     border-top: .05rem solid rgb(4, 4, 77);
     padding: 0rem .5rem;
-    margin: 1rem 8rem;
+    margin: 1rem 15rem;
     .publisher{
         color: rgb(4, 4, 77);
         h4{

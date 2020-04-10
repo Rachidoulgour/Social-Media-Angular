@@ -1,0 +1,44 @@
+h4{
+    margin: 3rem 15rem;
+    font-size: 1.5rem;
+}
+.card-body{
+    display: flex;
+    justify-content: center;
+    margin: 0 10rem;
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        
+        textarea{
+            width: 30vw;
+            margin: .5rem;
+        }
+        input{
+            
+            margin: .5rem;
+            max-width: 25rem;
+            
+        }
+        button{
+            all: unset;
+            color: #ffffff;
+            font-size: 1.5rem;
+            background-color: #31b95a;
+            border: .01rem solid #31b95a;
+            text-align: center;
+            padding: .5rem 1rem;
+            margin: .5rem;
+            width: 5rem;
+            &:hover{
+                cursor: pointer;
+                color: #31b95a;
+                border: .01rem solid #31b95a;
+                background-color: #d9f7e2;
+                transition: .3s ease;
+            }
+        }
+    }
+}
