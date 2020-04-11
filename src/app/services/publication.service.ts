@@ -42,6 +42,6 @@ export class PublicationService {
   deletePublication(token, id){
     
     let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken()) 
-    return this.http.delete(this.URL + 'publication/' +id, {headers: headers});
+    return this.http.delete(this.URL + '/publication/' +id, {headers: headers});
   }
 }

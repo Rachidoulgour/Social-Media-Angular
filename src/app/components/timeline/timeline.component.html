@@ -1,6 +1,12 @@
 <button class="btn-publicate" [routerLink]="['/publicar']">Publicar</button>
 <div *ngIf="publications">
 <div *ngFor="let publication of publications" class="publication">
+    <div *ngIf="publication.user._id==identity._id">
+        <button (click)="deletePublication(publication._id)">Eliminar</button>
+        <button mat-button (click)="openDialog()">Open dialog</button>
+
+    </div>
+    
     <div class="publisher">
         <div class="profile-avatar">
             <img [src]="'http://localhost:3500/'+publication.user.avatar">

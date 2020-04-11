@@ -5,7 +5,7 @@ import { UserService } from '../../services/user.service';
 
 import { PublicationService} from '../../services/publication.service';
 import { User } from '../../interfaces/User';
-
+import {MatDialog} from '@angular/material/dialog';
 
 import { Publication} from '../../interfaces/Publication';
 
@@ -30,7 +30,8 @@ export class TimelineComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private publicationService: PublicationService
+    private publicationService: PublicationService,
+    public dialog: MatDialog
   ) { 
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
@@ -40,6 +41,13 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
     this.getPublications(this.page);
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(Delete);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   getPublications(page){
     this.publicationService.getPublications(page).subscribe(
@@ -58,5 +66,26 @@ export class TimelineComponent implements OnInit {
       }
     )
   }
+  refresh($event=null){
+    console.log(event);
+    this.getPublications(1);
+  }
+  deletePublication(id){
+    this.publicationService.deletePublication(this.token, id).subscribe(
+      res=>{
+        console.log(res)
+        this.refresh()
+         
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+  }
 
 }
+@Component({
+  selector: 'delete',
+  templateUrl: 'delete.component.html',
+})
+export class Delete {}

@@ -21,6 +21,8 @@ import { PublicationComponent } from './components/publication/publication.compo
 import { PublicateComponent } from './components/publicate/publicate.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { UserComponent } from './components/user/user.component'
+import { MatDialogModule } from '@angular/material/dialog';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -39,12 +41,15 @@ import { UserComponent } from './components/user/user.component'
     PublicateComponent,
     TimelineComponent,
     UserComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    OverlayModule
   ],
   providers: [
     AuthenticGuard,
