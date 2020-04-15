@@ -70,7 +70,7 @@ export class PublicateComponent implements OnInit {
     this.publicationSrtvice.addPublication(this.token,this.publication).subscribe(
       res=>{
         
-        console.log(res.publication._id)
+        //console.log(res.publication._id)
         
         if(this.filesToUpload && this.filesToUpload.length){
           //subir imagen

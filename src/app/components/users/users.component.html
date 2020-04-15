@@ -8,7 +8,7 @@
             {{user.email}}
         </div>
         <div>
-            <img src="" alt="">
+            <img [src]="'assets/no-image.png'" *ngIf="!user.avatar">
         </div>
         
     </div>

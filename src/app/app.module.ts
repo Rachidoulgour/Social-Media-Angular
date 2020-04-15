@@ -19,10 +19,11 @@ import { UsersComponent } from './components/users/users.component';
 import { UsereditComponent } from './components/useredit/useredit.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import { PublicateComponent } from './components/publicate/publicate.component';
-import { TimelineComponent } from './components/timeline/timeline.component';
+import { TimelineComponent, Delete } from './components/timeline/timeline.component';
 import { UserComponent } from './components/user/user.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     PublicationComponent,
     PublicateComponent,
     TimelineComponent,
+    Delete,
     UserComponent
     
   ],
@@ -49,7 +51,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    OverlayModule
+    OverlayModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthenticGuard,
@@ -59,6 +62,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[Delete]
 })
 export class AppModule { }

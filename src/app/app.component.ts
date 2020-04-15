@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {UserService} from './services/user.service'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-root',

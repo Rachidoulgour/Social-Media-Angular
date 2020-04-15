@@ -1,7 +1,8 @@
 
 <div *ngIf="user" class="user-data">
     <div class="profile-avatar">
-        <img [src]="'http://localhost:3500/'+user.avatar">
+        <img [src]="'http://localhost:3500/'+user.avatar" *ngIf="user.avatar">
+        <img [src]="'assets/no-image.png'" *ngIf="!user.avatar">
     </div>
     <div class="datauser">
         <p><span class="username">{{user.username}}</span></p> 

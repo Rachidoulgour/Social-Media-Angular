@@ -17,27 +17,48 @@
     border-top: .05rem solid rgb(4, 4, 77);
     padding: 0rem .5rem;
     margin: 1rem 15rem;
-    .publisher{
-        color: rgb(4, 4, 77);
+    .publisher-section{
         display: flex;
-        margin-bottom: 2rem;
-        h4{
-            margin-left: 1rem;
-            a{
-                text-decoration: none;
+        flex-direction: row;
+        justify-content: space-between;
+        .delete-btn{
+            margin-top: 1.5rem;
+            button{
+                all: unset;
+                color: #ffffff;
+                background-color: #a03535;
+                border: solid .01rem #a03535;
+                margin-right: .3rem;
+                padding: .3rem .8rem;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #ee5a5a;
+                }
             }
         }
-        .profile-avatar{
-
-            img{
-                max-width: 4rem;
-                margin-left: .5rem;
-                padding-top: 1.5rem;
+        .publisher{
+            color: rgb(4, 4, 77);
+            display: flex;
+            margin-bottom: 2rem;
+            h4{
+                margin-left: 1rem;
+                a{
+                    text-decoration: none;
+                }
+            }
+            .profile-avatar{
+    
+                img{
+                    max-width: 4rem;
+                    margin-left: .5rem;
+                    padding-top: 1.5rem;
+                    
+                }
                 
             }
-            
         }
     }
+    
     .myPub{
         border: .05rem solid #7a7a94;
         .image{
@@ -58,4 +79,27 @@
         }
     }
     
+}
+.cancel-btn{
+    all: unset;
+    color: #a03535;
+    border: solid .01rem #a03535;
+    margin-right: .3rem;
+    padding: .3rem .8rem;
+    &:hover{
+        cursor: pointer;
+        background-color: #f8dfdf;
+    }
+}
+.eliminar-btn{
+    all: unset;
+    color: #ffffff;
+    background-color: #a03535;
+    border: solid .01rem #a03535;
+    margin-right: .3rem;
+    padding: .3rem .8rem;
+    &:hover{
+        cursor: pointer;
+        background-color: #ee5a5a;
+    }
 }

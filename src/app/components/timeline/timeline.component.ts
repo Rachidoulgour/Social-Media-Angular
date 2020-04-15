@@ -13,6 +13,7 @@ import { Publication} from '../../interfaces/Publication';
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss']
+  //animations: [ <yourAnimationMethod()> ]
 })
 export class TimelineComponent implements OnInit {
   identity;
@@ -42,13 +43,18 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
     this.getPublications(this.page);
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(Delete);
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(Delete,{
+  //     width: '10rem'
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //     if(result){
+  //       this.deletePublication(id)
+  //     }
+  //   });
+  // }
   getPublications(page){
     this.publicationService.getPublications(page).subscribe(
       (res:any)=>{
@@ -71,21 +77,68 @@ export class TimelineComponent implements OnInit {
     this.getPublications(1);
   }
   deletePublication(id){
-    this.publicationService.deletePublication(this.token, id).subscribe(
-      res=>{
-        console.log(res)
-        this.refresh()
+    // openDialog() {
+      const dialogRef = this.dialog.open(Delete);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+        if(result){
+          // this.deletePublication(id)
+          this.publicationService.deletePublication(this.token, id).subscribe(
+            res=>{
+              console.log(res)
+              this.refresh()
+               
+            },
+            err=>{
+              console.log(err);
+            }
+          )
+        }
+      });
+    //}
+    // this.publicationService.deletePublication(this.token, id).subscribe(
+    //   res=>{
+    //     console.log(res)
+    //     this.refresh()
          
-      },
-      err=>{
-        console.log(err);
-      }
-    )
+    //   },
+    //   err=>{
+    //     console.log(err);
+    //   }
+    // )
   }
 
 }
 @Component({
   selector: 'delete',
   templateUrl: 'delete.component.html',
+  styleUrls: ['./timeline.component.scss']
 })
-export class Delete {}
+export class Delete {
+  // identity;
+  // token;
+  // constructor(
+  //   private route: ActivatedRoute,
+  //   private router: Router,
+  //   private userService: UserService,
+  //   private publicationService: PublicationService,
+  //   public dialog: MatDialog
+  // ) { 
+  //   this.identity = this.userService.getIdentity();
+  //   this.token = this.userService.getToken();
+    
+  // }
+  // eliminar(id){
+  //   this.publicationService.deletePublication(this.token, id).subscribe(
+  //     res=>{
+  //       console.log(res)
+  //       //this.refresh()
+         
+  //     },
+  //     err=>{
+  //       console.log(err);
+  //     }
+  //   )
+  // }
+}
