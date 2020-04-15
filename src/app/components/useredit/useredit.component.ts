@@ -47,6 +47,7 @@ export class UsereditComponent implements OnInit {
                       console.log(result);
                       this.user.avatar = result.user.avatar;
                       localStorage.setItem('identity', JSON.stringify(this.user));
+                      this.router.navigate(['/perfil', this.identity._id]);
                     })
 
         }
