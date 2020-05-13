@@ -8,10 +8,15 @@
             <div class="profile-avatar">
                 <img [src]="'http://localhost:3500/'+publication.user.avatar" *ngIf="publication.user.avatar">
                 <img [src]="'assets/no-image.png'" *ngIf="!publication.user.avatar">
-            </div>
+            </div>s
             <h4>
                 <a [routerLink]="['/usuario', publication.user._id]">
                     {{publication.user.username}}
+                </a>
+            </h4>
+            <h4>
+                <a [routerLink]="['/mensajes/enviar', publication.user._id]">
+                    Enviar Mensaje a {{publication.user.username}}
                 </a>
             </h4>
         </div>

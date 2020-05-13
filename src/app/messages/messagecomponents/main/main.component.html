@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <ul>
+            <li>
+                <a [routerLink]="['enviar']">Enviar Mensaje</a>
+            </li>
+            <li>
+                <a [routerLink]="['recibidos']">Mensajes Recibidos</a>
+            </li>
+            <li>
+                <a [routerLink]="['enviados']">Mensajes Enviados</a>
+            </li>
+            <li>
+                <a [routerLink]="['/home']">Información</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>

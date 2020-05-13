@@ -1,0 +1,25 @@
+<p>sended works!</p>
+<div class="people">
+    <div *ngFor="let message of messages" class="itemuser">
+        <div class="users">
+            {{message.emitter.name}}
+        </div>
+        <!-- <div *ngIf="message.emitter._id!=identity._id">
+            <button *ngIf="follows.indexOf(message.emitter._id)<0" (click)="followUser(message.emitter._id)">
+                Seguir
+            </button>
+            <button>
+                Seguiendo
+            </button>
+            <button *ngIf="follows.indexOf(message.emitter._id)>=0" (click)="unfollowUser(message.emitter._id)">
+                Dejar de Seguir
+            </button> -->
+            <div>
+            {{message.text}}
+        </div>
+    </div>
+</div>
+<ul>
+    <li *ngIf="page>1" ><a [routerLink]="['mensajes/enviados',userPageId, prev_page]">Anterior</a></li>
+    <li *ngIf="pages!=page" ><a [routerLink]="['mensajes/enviados',userPageId, next_page]">Siguiente</a></li>
+</ul>

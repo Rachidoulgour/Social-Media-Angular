@@ -4,6 +4,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
+import { MessagesModule } from './messages/messagecomponents/messages.module'
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PhotoFormComponent } from './components/photo-form/photo-form.component';
@@ -24,6 +25,10 @@ import { UserComponent } from './components/user/user.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddComponent } from './messages/messagecomponents/add/add.component';
+import { MainComponent } from './messages/messagecomponents/main/main.component';
+import { ReceivedComponent } from './messages/messagecomponents/received/received.component';
+import { SendedComponent } from './messages/messagecomponents/sended/sended.component';
 
 
 @NgModule({
@@ -42,7 +47,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PublicateComponent,
     TimelineComponent,
     Delete,
-    UserComponent
+    UserComponent,
+    // AddComponent,
+    // MainComponent,
+    // ReceivedComponent,
+    // SendedComponent
     
   ],
   imports: [
@@ -53,6 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDialogModule,
     OverlayModule,
     BrowserAnimationsModule,
+    MessagesModule
   ],
   providers: [
     AuthenticGuard,
