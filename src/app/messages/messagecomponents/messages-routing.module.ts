@@ -6,6 +6,7 @@ import { MainComponent } from './main/main.component';
 import { AddComponent } from './add/add.component';
 import { ReceivedComponent } from './received/received.component';
 import { SendedComponent } from './sended/sended.component';
+import { ReadmessageComponent } from './readmessage/readmessage.component';
 
 const messagesRoutes:Routes = [
     {
@@ -17,7 +18,8 @@ const messagesRoutes:Routes = [
             {path: 'recibidos', component: ReceivedComponent},
             {path: 'recibidos/:page', component: ReceivedComponent},
             {path: 'enviados', component: SendedComponent},
-            {path: 'enviados/:page', component: SendedComponent}
+            {path: 'enviados/:page', component: SendedComponent},
+            {path: 'leer-mensajes/:emitterid', component: ReadmessageComponent}
         ]
 }
 ];

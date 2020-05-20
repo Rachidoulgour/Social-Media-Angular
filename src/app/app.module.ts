@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
+import { MomentModule } from 'ngx-moment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MessagesModule } from './messages/messagecomponents/messages.module'
@@ -29,6 +30,7 @@ import { AddComponent } from './messages/messagecomponents/add/add.component';
 import { MainComponent } from './messages/messagecomponents/main/main.component';
 import { ReceivedComponent } from './messages/messagecomponents/received/received.component';
 import { SendedComponent } from './messages/messagecomponents/sended/sended.component';
+import { ReadmessageComponent } from './messages/messagcomponents/readmessage/readmessage.component';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { SendedComponent } from './messages/messagecomponents/sended/sended.comp
     TimelineComponent,
     Delete,
     UserComponent,
+    //ReadmessageComponent,
     // AddComponent,
     // MainComponent,
     // ReceivedComponent,
@@ -62,7 +65,8 @@ import { SendedComponent } from './messages/messagecomponents/sended/sended.comp
     MatDialogModule,
     OverlayModule,
     BrowserAnimationsModule,
-    MessagesModule
+    MessagesModule,
+    MomentModule
   ],
   providers: [
     AuthenticGuard,

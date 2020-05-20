@@ -23,7 +23,7 @@ export class AddComponent implements OnInit {
   ) { 
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
-    this.message =  {_id:'',text:'',viewed:'',created_id:'',emitter:this.identity._id,receiver:""};
+    this.message =  {_id:'',text:'',viewed:'',created_at:'',emitter:this.identity._id,receiver:""};
   }
 
   ngOnInit(): void {
@@ -56,6 +56,7 @@ export class AddComponent implements OnInit {
       res=>{
         if(res){
           console.log(res)
+          this.router.navigate(['/mensajes/enviados'])
         }
       },
       err=>{

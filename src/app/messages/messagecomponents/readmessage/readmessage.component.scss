@@ -1,0 +1,36 @@
+.people{
+    .itemuser{
+        margin: 3rem 5rem;
+        border: solid .02rem rgba(145, 43, 119, 0.322);
+        
+        .users{
+            background-color: rgba(145, 43, 119, 0.322);
+            p{
+                margin: 0;
+                padding: .3rem 1rem;
+                
+            }
+            .users-functions{
+                display: flex;
+                justify-content: space-between;
+
+                p{
+                    margin: 0;
+                }
+                a{
+                    text-decoration: none;
+                    
+                    padding: .3rem 1rem;
+                    &hover{
+                        color: red;
+                    }
+                }
+            }
+        }
+        .message-text{
+            p{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

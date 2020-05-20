@@ -2,7 +2,9 @@
 <div class="people" *ngIf="messages">
     <div *ngFor="let message of messages" class="itemuser">
         <div class="users">
-            {{message.emitter.name}}
+            <a [routerLink]="['/mensajes/leer-mensajes', message.emitter._id]">
+            {{message.emitter.username}}
+        </a>
         </div>
         <!-- <div *ngIf="message.emitter._id!=identity._id">
             <button *ngIf="follows.indexOf(message.emitter._id)<0" (click)="followUser(message.emitter._id)">
@@ -14,8 +16,10 @@
             <button *ngIf="follows.indexOf(message.emitter._id)>=0" (click)="unfollowUser(message.emitter._id)">
                 Dejar de Seguir
             </button> -->
-        <div>
-            {{message.text}}
+        <div class="message-text">
+            <a [routerLink]="['/mensajes/leer-mensajes', message.emitter._id]">
+                Ver Mensaje
+            </a>
         </div>
     </div>
 </div>

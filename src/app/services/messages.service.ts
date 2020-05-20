@@ -19,6 +19,11 @@ export class MessagesService {
                                     .set('Authorization', token);
     return this.http.get(this.URL + '/my-messages/'+page, {headers: headers});
   }
+  getMessagesByEmitter(token, id, page=1){
+    let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                    .set('Authorization', token);
+    return this.http.get(this.URL + '/my-messages/'+id+'/'+page, {headers: headers});
+  }
   getEmmitMessages(token, page=1){
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
                                     .set('Authorization', token);

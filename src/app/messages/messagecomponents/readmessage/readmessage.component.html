@@ -1,9 +1,16 @@
-<p>sended works!</p>
-<div class="people">
+
+<div class="people" *ngIf="messages">
     <div *ngFor="let message of messages" class="itemuser">
         <div class="users">
-            {{message.emitter.username}}
-            <p>{{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
+            <div *ngIf="message.emitter._id!=identity._id" class="users-functions">
+                <p>{{message.emitter.username.toUpperCase()}}</p>
+                <a [routerLink]="['/mensajes/enviar', message.emitter._id]">
+                    Responder 
+                </a>
+            </div>
+            <div *ngIf="message.emitter._id===identity._id">
+                <p>Tu</p>
+            </div>
         </div>
         <!-- <div *ngIf="message.emitter._id!=identity._id">
             <button *ngIf="follows.indexOf(message.emitter._id)<0" (click)="followUser(message.emitter._id)">
@@ -15,8 +22,8 @@
             <button *ngIf="follows.indexOf(message.emitter._id)>=0" (click)="unfollowUser(message.emitter._id)">
                 Dejar de Seguir
             </button> -->
-            <div>
-            {{message.text}}
+        <div class="message-text">
+           <p> {{message.text}} </p>
         </div>
     </div>
 </div>

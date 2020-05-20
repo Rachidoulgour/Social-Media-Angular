@@ -72,7 +72,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/photos',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];

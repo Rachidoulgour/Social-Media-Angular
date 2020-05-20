@@ -8,6 +8,8 @@ import { MainComponent } from './main/main.component';
 import { AddComponent } from './add/add.component';
 import { ReceivedComponent } from './received/received.component';
 import { SendedComponent } from './sended/sended.component';
+import { ReadmessageComponent } from './readmessage/readmessage.component';
+import { MomentModule } from 'ngx-moment';
 
 
 
@@ -16,12 +18,14 @@ import { SendedComponent } from './sended/sended.component';
         MainComponent,
         AddComponent,
         ReceivedComponent,
-        SendedComponent
+        SendedComponent,
+        ReadmessageComponent
     ],
     imports:[
         CommonModule,
         FormsModule,
-        MessagesRoutingModule
+        MessagesRoutingModule,
+        MomentModule
     ],
     exports:[
         MainComponent,

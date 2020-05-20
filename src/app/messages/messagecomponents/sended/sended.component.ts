@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MessagesService } from 'src/app/services/messages.service';
 import { UserService } from 'src/app/services/user.service';
 import { Message } from 'src/app/interfaces/Message';
+import { MomentModule } from 'ngx-moment';
 
 @Component({
   selector: 'app-sended',
@@ -38,33 +39,36 @@ export class SendedComponent implements OnInit {
   actualPage(){
     this.route.params.subscribe(params =>{
       
-      let page = +params['page'];
-      this.page = page;
-      if(!params['page']){
-        page=1
-      }
-      if(!page){
-        page = 1
-      }else{
-        this.next_page=page+1;
-        this.prev_page=page-1;
-        if(this.prev_page<=0){
-          this.prev_page=1;
-        }
-      }
+      // let page = params['page'];
+      // this.page = page;
+      // if(!params['page']){
+      //   page=1
+      // }
+      // if(!page){
+      //   page = 1
+      // }else{
+      //   this.next_page=page+1;
+      //   this.prev_page=page-1;
+      //   if(this.prev_page<=0){
+      //     this.prev_page=1;
+      //   }
+      // }
       this.getMessages(this.token, this.page);
     });
   }
   getMessages(token, page){
     this.messagesService.getEmmitMessages(token, page).subscribe(
       res=>{
-        if(!res.messages){
-          
+        console.log(res)
+        if(!res){
+          console.log(res)
           
         }else{
+          console.log(res)
           this.messages = res.messages;
-          this.total = res.total;
-          this.pages = res.pages;
+          console.log(this.messages)
+          // this.total = res.total;
+          // this.pages = res.pages;
         }
       },
       err=>{
