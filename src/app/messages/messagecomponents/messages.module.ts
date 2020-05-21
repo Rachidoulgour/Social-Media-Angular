@@ -11,6 +11,9 @@ import { SendedComponent } from './sended/sended.component';
 import { ReadmessageComponent } from './readmessage/readmessage.component';
 import { MomentModule } from 'ngx-moment';
 
+import {UserService} from '../../services/user.service';
+import {UserguardService} from '../../services/userguard.service';
+
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { MomentModule } from 'ngx-moment';
         ReceivedComponent,
         SendedComponent
     ],
-    providers: []
+    providers: [
+        UserService,
+        UserguardService
+    ]
 })
 export class MessagesModule { }

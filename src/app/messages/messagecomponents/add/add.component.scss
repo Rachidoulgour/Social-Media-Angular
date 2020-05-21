@@ -1,0 +1,39 @@
+
+.messageForm{
+    display: flex;
+    justify-content: center;
+    .form{
+        p{
+            font-weight: bold;
+        }
+        select{
+            width: 10rem;
+        }
+        p{
+            display: flex;
+            flex-direction: column;
+            label{
+                margin: .5rem 0;
+                font-weight: bold;
+            }
+            textarea{
+                width: 20rem;
+            }
+        }
+        button{
+            all: unset;
+            color: white;
+            text-align: center;
+            border: solid 1px blueviolet;
+            background-color: blueviolet;
+            margin-top: .5rem;
+            padding: .4rem .5rem;
+            width: 10vw;
+            &:hover {
+                background-color: rgba(145, 43, 119, 0.322);
+                color: blueviolet;
+                transition: ease .3s;
+            }
+        }
+    }
+}

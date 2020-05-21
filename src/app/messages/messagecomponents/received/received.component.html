@@ -1,21 +1,12 @@
-<p>received works!</p>
+<h3>Mensajes Recividos</h3>
 <div class="people" *ngIf="messages">
     <div *ngFor="let message of messages" class="itemuser">
         <div class="users">
             <a [routerLink]="['/mensajes/leer-mensajes', message.emitter._id]">
-            {{message.emitter.username}}
-        </a>
+                {{message.emitter.username.toUpperCase()}}
+            </a>
+            <p>{{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
         </div>
-        <!-- <div *ngIf="message.emitter._id!=identity._id">
-            <button *ngIf="follows.indexOf(message.emitter._id)<0" (click)="followUser(message.emitter._id)">
-                Seguir
-            </button>
-            <button>
-                Seguiendo
-            </button>
-            <button *ngIf="follows.indexOf(message.emitter._id)>=0" (click)="unfollowUser(message.emitter._id)">
-                Dejar de Seguir
-            </button> -->
         <div class="message-text">
             <a [routerLink]="['/mensajes/leer-mensajes', message.emitter._id]">
                 Ver Mensaje

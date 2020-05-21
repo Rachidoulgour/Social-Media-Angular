@@ -26,11 +26,9 @@ import { UserComponent } from './components/user/user.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddComponent } from './messages/messagecomponents/add/add.component';
-import { MainComponent } from './messages/messagecomponents/main/main.component';
-import { ReceivedComponent } from './messages/messagecomponents/received/received.component';
-import { SendedComponent } from './messages/messagecomponents/sended/sended.component';
-import { ReadmessageComponent } from './messages/messagcomponents/readmessage/readmessage.component';
+
+import {UserService} from './services/user.service'
+import {UserguardService} from './services/userguard.service'
 
 
 @NgModule({
@@ -69,7 +67,8 @@ import { ReadmessageComponent } from './messages/messagcomponents/readmessage/re
     MomentModule
   ],
   providers: [
-    AuthenticGuard,
+    UserService,
+    UserguardService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,

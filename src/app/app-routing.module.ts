@@ -14,6 +14,8 @@ import { PublicateComponent } from './components/publicate/publicate.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { UserComponent } from './components/user/user.component';
 
+import {UserguardService} from './services/userguard.service'
+
 const routes: Routes = [
   {
     path: 'photos',
@@ -38,17 +40,17 @@ const routes: Routes = [
   {
     path: 'usuario/:id',
     component: UserComponent,
-    canActivate: [AuthenticGuard]
+    canActivate: [UserguardService]
   },
   {
     path: 'perfil',
     component: ProfilComponent,
-    canActivate: [AuthenticGuard]
+    canActivate: [UserguardService]
   },
   {
     path: 'editar-perfil',
     component: UsereditComponent,
-    canActivate: [AuthenticGuard]
+    canActivate: [UserguardService]
   },
   {
     path: 'publications',
@@ -58,17 +60,17 @@ const routes: Routes = [
   {
     path: 'publicar',
     component: PublicateComponent,
-    canActivate: [AuthenticGuard]
+    canActivate: [UserguardService]
   },
   {
     path: 'timeline',
     component: TimelineComponent,
-    canActivate: [AuthenticGuard]
+    canActivate: [UserguardService]
   },
   {
     path: 'usuarios',
     component: UsersComponent,
-    canActivate: [AuthenticGuard]
+    canActivate: [UserguardService]
   },
   {
     path: '',

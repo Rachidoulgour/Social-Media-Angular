@@ -1,11 +1,13 @@
 <div>
-    <div>
-        <form #formadd="ngForm" (ngSubmit)="onSubmit()">
+    <div class="messageForm">
+        <form #formadd="ngForm" (ngSubmit)="onSubmit()" class="form">
+            <p>Selecciona el destinatario</p>
             <select *ngIf="user" name="receiver" #receiver="ngModel" [(ngModel)]="message.receiver" required>
                 <option value="{{user._id}}">
                     {{user.username}}
                 </option>
             </select>
+            
             <p>
                 <label for="">Mensaje</label>
                 <textarea name="text" #text="ngModel" [(ngModel)]="message.text" required></textarea>

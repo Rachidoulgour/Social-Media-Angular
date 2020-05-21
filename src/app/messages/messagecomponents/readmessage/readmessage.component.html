@@ -1,15 +1,17 @@
-
+<div>
+    <h3>Mensajes</h3>
+</div>
 <div class="people" *ngIf="messages">
     <div *ngFor="let message of messages" class="itemuser">
         <div class="users">
             <div *ngIf="message.emitter._id!=identity._id" class="users-functions">
-                <p>{{message.emitter.username.toUpperCase()}}</p>
+                <p>{{message.emitter.username.toUpperCase()}} | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
                 <a [routerLink]="['/mensajes/enviar', message.emitter._id]">
                     Responder 
                 </a>
             </div>
             <div *ngIf="message.emitter._id===identity._id">
-                <p>Tu</p>
+                <p>Tu | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
             </div>
         </div>
         <!-- <div *ngIf="message.emitter._id!=identity._id">

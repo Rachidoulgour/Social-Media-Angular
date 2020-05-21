@@ -42,6 +42,7 @@ export class AddComponent implements OnInit {
       res=>{
         console.log(res)
         this.user=res
+        console.log(this.user._id)
         
       },
       err=>{
@@ -51,7 +52,7 @@ export class AddComponent implements OnInit {
     )
   }
   onSubmit(){
-    console.log(this.message);
+    console.log("This message",this.message);
     this.messagesService.addMessage(this.token, this.message).subscribe(
       res=>{
         if(res){

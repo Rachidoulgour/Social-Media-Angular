@@ -1,0 +1,35 @@
+h3{
+    text-align: center;
+}
+.people{
+    .itemuser{
+        margin: 3rem 5rem;
+        border: solid .02rem rgba(145, 43, 119, 0.322);
+        display: flex;
+        justify-content: space-between;
+        .users{
+            display: flex;
+            a{
+                background-color: rgba(145, 43, 119, 0.322);
+                text-decoration: none;
+                color: white;
+                margin: 0;
+                padding: .3rem 1rem;
+            }
+            p{
+                margin: 0;
+                padding: .3rem 1rem;
+                
+                
+            }
+            
+        }
+        .message-text{
+            a{
+                text-decoration: none;
+                margin: 0;
+                padding: .3rem 1rem;
+            }
+        }
+    }
+}

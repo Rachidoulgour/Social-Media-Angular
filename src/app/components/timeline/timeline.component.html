@@ -8,17 +8,17 @@
             <div class="profile-avatar">
                 <img [src]="'http://localhost:3500/'+publication.user.avatar" *ngIf="publication.user.avatar">
                 <img [src]="'assets/no-image.png'" *ngIf="!publication.user.avatar">
-            </div>s
+            </div>
             <h4>
                 <a [routerLink]="['/usuario', publication.user._id]">
-                    {{publication.user.username}}
+                    {{publication.user.username.toUpperCase()}}
                 </a>
             </h4>
-            <h4>
+            <div class="messageSend">
                 <a [routerLink]="['/mensajes/enviar', publication.user._id]">
-                    Enviar Mensaje a {{publication.user.username}}
+                    Enviar Mensaje
                 </a>
-            </h4>
+            </div>
         </div>
         <div *ngIf="publication.user._id==identity._id" class="delete-btn">
             <button (click)="deletePublication(publication._id)">Eliminar</button>
