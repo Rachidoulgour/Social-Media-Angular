@@ -4,32 +4,26 @@
 <div class="people" *ngIf="messages">
     <div *ngFor="let message of messages" class="itemuser">
         <div class="users">
-            <div *ngIf="message.emitter._id!=identity._id" class="users-functions">
-                <p>{{message.emitter.username.toUpperCase()}} | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
-                <a [routerLink]="['/mensajes/enviar', message.emitter._id]">
+            <div *ngIf="message.emitter['_id']!=identity._id" class="users-functions">
+                <p>{{message.emitter['username'].toUpperCase()}} | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
+                <a [routerLink]="['/mensajes/enviar', message.emitter['_id']]">
                     Responder 
                 </a>
             </div>
-            <div *ngIf="message.emitter._id===identity._id">
+            <div *ngIf="message.emitter['_id']===identity._id">
                 <p>Tu | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
             </div>
         </div>
-        <!-- <div *ngIf="message.emitter._id!=identity._id">
-            <button *ngIf="follows.indexOf(message.emitter._id)<0" (click)="followUser(message.emitter._id)">
-                Seguir
-            </button>
-            <button>
-                Seguiendo
-            </button>
-            <button *ngIf="follows.indexOf(message.emitter._id)>=0" (click)="unfollowUser(message.emitter._id)">
-                Dejar de Seguir
-            </button> -->
         <div class="message-text">
            <p> {{message.text}} </p>
         </div>
     </div>
+    
 </div>
-<ul>
-    <li *ngIf="page>1" ><a [routerLink]="['mensajes/enviados',userPageId, prev_page]">Anterior</a></li>
-    <li *ngIf="pages!=page" ><a [routerLink]="['mensajes/enviados',userPageId, next_page]">Siguiente</a></li>
+<div class="error500" *ngIf="error500">
+    <p>Algo ha ido mal</p>
+</div>
+<ul class="nextpreview">
+    <li *ngIf="page>1" ><a [routerLink]="['/mensajes/leer-mensajes/',id, prev_page]">Anterior</a></li>
+    <li *ngIf="pages!=page" ><a [routerLink]="['/mensajes/leer-mensajes/',id , next_page]">Siguiente</a></li>
 </ul>

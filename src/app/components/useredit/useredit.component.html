@@ -1,12 +1,12 @@
-<p>useredit works!</p>
-<div>
+
+<div class="edit">
+    <h3>Editar Perfil</h3>
     <div class="signup-form">
         <form (submit)="userEdit()">
             <input type="text" name="username" [(ngModel)]="user.username" placeholder="Usuario" required>
             <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
             <input type="password" name="password" [(ngModel)]="user.password" placeholder="Contraseña" required>
-            <div>
-            <!-- <img src="{{URL+'get-avatar-usr/'+user.avatar}}" alt=""> -->
+            <div class="image">
             <img [src]="'http://localhost:3500/'+user.avatar">
             </div>
             <input type="file" (change)="fileChangeEvent($event)" placeholder="subir imagen">

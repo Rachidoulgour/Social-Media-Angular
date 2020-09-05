@@ -2,6 +2,11 @@ h4{
     margin: 3rem 15rem;
     font-size: 1.5rem;
 }
+@media screen and (max-width: 76rem){
+    h4{
+        margin: 3vh 15vw;
+    }
+}
 .card-body{
     display: flex;
     justify-content: center;
@@ -39,6 +44,32 @@ h4{
                 background-color: #d9f7e2;
                 transition: .3s ease;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 50rem){
+    .card-body{
+        display: flex;
+        justify-content: center;
+        margin: 0 10vw;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            
+            textarea{
+                width: 90vw;
+                margin: .5rem;
+            }
+            input{
+                
+                margin: .5rem;
+                width: 90vw;
+                
+            }
+            
         }
     }
 }

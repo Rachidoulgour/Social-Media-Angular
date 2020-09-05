@@ -1,10 +1,33 @@
-<div>
-    <div class="signup-form">
-        <form (submit)="signUp()">
-            <input type="text" name="username" [(ngModel)]="user.username" placeholder="Usuario" required>
-            <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
-            <input type="password" name="password" [(ngModel)]="user.password" placeholder="Contraseña" required>
-            <button type="submit">Registrarse</button>
-        </form>
+
+<div class="signup-form">
+<form [formGroup]="form" class="register"
+(submit)="signUp()">
+    <h2>Darse de alta:</h2>
+    <div class="inputs">
+        <input type="text" formControlName="username" placeholder="introduce your name">
+        <div class="error"
+        *ngIf="form.get('username').invalid"> 
+        Name tiene que estar entre 8 y 40 caracteres
+        </div>
+        <input type="text" formControlName="email" placeholder="introduce your email">
+        <div class="error"
+        *ngIf="form.get('email').invalid &&  form.get('email').touched"> 
+        Debes introducir un email</div>
+
+        <input type="password" formControlName="password" placeholder="introduce your password">
+        <div class="error"
+        *ngIf="form.get('password').invalid &&  form.get('password').touched"> 
+        Password debe contener al menos un numero, una letra y ser mayor que 8 carácteres </div>
+        </div>
+        <div class="terms">
+            <input class="checkbox" type="checkbox" formControlName="conditions" value="accept" required>
+            <label for="conditions">Acepto las <a [routerLink]="['/usuario']">condiciones de uso</a> y
+            <a [routerLink]="['/usuario']">la política de privacidad</a> </label>
+            <div class="error"
+        *ngIf="form.get('conditions').invalid"> 
+        Debe aceptar los terminos y condiciones de uso.
+        </div>
     </div>
+    <button type="submit">Registrarse</button>
+</form>
 </div>

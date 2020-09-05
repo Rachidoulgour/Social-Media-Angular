@@ -22,6 +22,7 @@ export class ReadmessageComponent implements OnInit {
   prev_page;
   total;
   id: any;
+  error500;
   constructor(
     private route:ActivatedRoute,
     private router:Router,
@@ -37,31 +38,47 @@ export class ReadmessageComponent implements OnInit {
   }
   loadPage(){
     this.route.params.subscribe(params=>{
+      let page = +params['page'];
+      this.page = page;
+      if(!params['page']){
+        page=1
+      }
+      if(!page){
+        page = 1
+      }else{
+        this.next_page=page+1;
+        this.prev_page=page-1;
+        if(this.prev_page<=0){
+          this.prev_page=1;
+        }
+        this.id = params['emitterid'];
+      }
       let id = params['emitterid'];
-      console.log("ID",id)
       this.getMessagesByEmitter(this.token,id, this.page)
     }
       
     )
   }
   getMessagesByEmitter(token, id, page){
-    console.log(id)
     this.messagesService.getMessagesByEmitter(token,id,page).subscribe(
       res=>{
         
-        if(!res.messages){
+        if(!res['messages']){
           
           
         }else{
-          console.log(res)
-          this.messages = res.messages;
-          console.log(this.messages)
-          this.total = res.total;
-          this.pages = res.pages;
+          this.messages = res['messages'];
+          this.total = res['total'];
+          this.pages = res['pages'];
         }
       },
       err=>{
-        console.log(err)
+        console.log(err.status)
+        if(err.status ===500){
+          console.log("error awi")
+          this.error500=err.status
+        }
+        
       }
     );
   }

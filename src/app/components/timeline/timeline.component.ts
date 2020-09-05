@@ -4,16 +4,17 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 import { PublicationService} from '../../services/publication.service';
+import {MessagesService} from '../../services/messages.service';
 import { User } from '../../interfaces/User';
 import {MatDialog} from '@angular/material/dialog';
 
 import { Publication} from '../../interfaces/Publication';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss']
-  //animations: [ <yourAnimationMethod()> ]
 })
 export class TimelineComponent implements OnInit {
   identity;
@@ -25,13 +26,16 @@ export class TimelineComponent implements OnInit {
   pages;
   itemsPerPage: any;
   publications: Publication[];
-  private URL = 'http://localhost:3500/api';
+  private URL = environment.URL;
+  unreed: number;
+  error500;
   
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private publicationService: PublicationService,
+    private messagesService:MessagesService,
     public dialog: MatDialog
   ) { 
     this.identity = this.userService.getIdentity();
@@ -42,53 +46,55 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
     this.getPublications(this.page);
+    this.getUnreedMessages(this.token);
   }
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(Delete,{
-  //     width: '10rem'
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //     if(result){
-  //       this.deletePublication(id)
-  //     }
-  //   });
-  // }
-  getPublications(page){
-    this.publicationService.getPublications(page).subscribe(
+  
+  getPublications(page, adding=false){
+    this.publicationService.getPublications(this.token, page).subscribe(
       (res:any)=>{
-        this.total=res.total_items;
-        this.pages = res.pages;
-        this.publications=res.publications;
-        console.log(res.publications)
-
+        console.log(res)
+        this.total=res['total_items'];
+        this.pages = res['pages'];
+        this.itemsPerPage=res['items_per_page'];
+        if (!adding){
+          this.publications=res['publications'];
+        }else{
+          let arrayA=this.publications;
+          let arrayB=res['publications'];
+          this.publications=arrayA.concat(arrayB);
+        }
         if(page>this.pages){
-          this.router.navigate(['/home'])
         }
       },
       err=>{
         console.log(err)
+        if(err.status ===500){
+          this.error500=err.status
+        }
       }
     )
   }
+  noMore=false;
+  viewMore(){
+    if (this.publications.length == this.total){
+      this.noMore = true;
+    }else{
+      this.page+=1;
+    }
+    this.getPublications(this.page, true);
+  }
   refresh($event=null){
-    console.log(event);
-    this.getPublications(1);
+    this.getPublications(this.page);
+    this.getUnreedMessages(this.token);
   }
   deletePublication(id){
-    // openDialog() {
       const dialogRef = this.dialog.open(Delete);
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
         if(result){
-          // this.deletePublication(id)
           this.publicationService.deletePublication(this.token, id).subscribe(
             res=>{
-              console.log(res)
               this.refresh()
-               
             },
             err=>{
               console.log(err);
@@ -96,19 +102,19 @@ export class TimelineComponent implements OnInit {
           )
         }
       });
-    //}
-    // this.publicationService.deletePublication(this.token, id).subscribe(
-    //   res=>{
-    //     console.log(res)
-    //     this.refresh()
-         
-    //   },
-    //   err=>{
-    //     console.log(err);
-    //   }
-    // )
+   
   }
-
+  getUnreedMessages(token){
+    this.messagesService.getUnreedMessages(token).subscribe(
+      res=>{
+        this.unreed = +res['unviewed'];  
+      },
+      err=>{
+        console.log(err)
+        
+      }
+    );
+  }
 }
 @Component({
   selector: 'delete',
@@ -116,29 +122,5 @@ export class TimelineComponent implements OnInit {
   styleUrls: ['./timeline.component.scss']
 })
 export class Delete {
-  // identity;
-  // token;
-  // constructor(
-  //   private route: ActivatedRoute,
-  //   private router: Router,
-  //   private userService: UserService,
-  //   private publicationService: PublicationService,
-  //   public dialog: MatDialog
-  // ) { 
-  //   this.identity = this.userService.getIdentity();
-  //   this.token = this.userService.getToken();
-    
-  // }
-  // eliminar(id){
-  //   this.publicationService.deletePublication(this.token, id).subscribe(
-  //     res=>{
-  //       console.log(res)
-  //       //this.refresh()
-         
-  //     },
-  //     err=>{
-  //       console.log(err);
-  //     }
-  //   )
-  // }
+  
 }

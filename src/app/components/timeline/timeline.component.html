@@ -1,40 +1,62 @@
+<div class="timeline">
+    <div class="covid-section">
+        <p>Protegete contra la pandemia siguiendo las medidas de prevención.</p>
+    </div>
 <button class="btn-publicate" [routerLink]="['/publicar']">Publicar</button>
-<div *ngIf="publications">
+<button *ngIf="unreed>0" class="btn-publicate" [routerLink]="['/mensajes/recibidos']">Tienes {{unreed}} <mat-icon>mail_outline</mat-icon> mensajes</button>
+<div *ngIf="!publications">
+    <img [src]="'assets/spinner.jpg'" *ngIf="!publications">
+</div>
+<div *ngIf="publications" class="publication-section">
 <div *ngFor="let publication of publications" class="publication">
     <div class="publisher-section">
         
         
         <div class="publisher">
-            <div class="profile-avatar">
-                <img [src]="'http://localhost:3500/'+publication.user.avatar" *ngIf="publication.user.avatar">
-                <img [src]="'assets/no-image.png'" *ngIf="!publication.user.avatar">
-            </div>
             <h4>
-                <a [routerLink]="['/usuario', publication.user._id]">
-                    {{publication.user.username.toUpperCase()}}
+                <a [routerLink]="['/usuario', publication.user['_id']]">
+                    {{publication.user['username'].toUpperCase()}}
                 </a>
             </h4>
-            <div class="messageSend">
-                <a [routerLink]="['/mensajes/enviar', publication.user._id]">
-                    Enviar Mensaje
+            <div *ngIf="publication.user['_id']!=identity._id" class="messageSend">
+                <a [routerLink]="['/mensajes/enviar', publication.user['_id']]">
+                    <p>Mensaje</p> 
                 </a>
             </div>
         </div>
-        <div *ngIf="publication.user._id==identity._id" class="delete-btn">
-            <button (click)="deletePublication(publication._id)">Eliminar</button>
-            <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+        <div *ngIf="publication.user['_id']==identity._id || publication.user['role']=='ROLE_ADMIN'" class="delete-btn">
+            <button (click)="deletePublication(publication._id)"><mat-icon>delete_forever</mat-icon><span>Eliminar</span></button>
         </div>
     </div>
     
     <div class="myPub">
-        <div class="image" *ngIf="publication.file!='null'">
-            <!-- <img src="{{URL + '/pub-image/'+publication.file}}" alt=""> -->
-            <img [src]="'http://localhost:3500/'+publication.file">
-        </div>
-        <div class="text">
-            <p>{{publication.text}}</p>
-        </div>
+        <a [routerLink]="['/publicacion', publication['_id']]">
+            
+            <div class="image" *ngIf="publication.file!='null'">
+                <img [src]="publication.file">
+            </div>
+            
+            
+            <div class="text">
+                <h2>{{publication.title}}</h2>
+                <p>{{publication.genre}}</p>
+                <p>{{publication.city}}</p>
+                <div class="created">
+                    <p><mat-icon>hourglass_empty</mat-icon>{{(publication.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
+                </div>
+            </div>
+        </a>
+        
     </div>
     
+</div>
+
+
+</div>
+<button class="seemore" (click)="viewMore()" *ngIf="!noMore">
+    Ver más
+</button>
+<div class="error500" *ngIf="error500">
+    <p>Algo ha ido mal</p>
 </div>
 </div>

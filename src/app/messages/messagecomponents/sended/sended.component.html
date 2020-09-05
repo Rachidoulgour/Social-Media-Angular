@@ -1,30 +1,22 @@
 <h3>Mensajes Enviados</h3>
 <div class="people">
+    <div *ngIf="!messages">
+        <img [src]="'assets/spinner.jpg'" *ngIf="!messages">
+    </div>
     <div *ngFor="let message of messages" class="itemuser">
-        <div class="users">
-            
-            <p>{{message.emitter.username.toUpperCase()}} a {{message.receiver.username.toUpperCase()}} | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
+        <div class="users">            
+            <p>A {{message.receiver['username'].toUpperCase()}} | {{(message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
         </div>
-        <!-- <div *ngIf="message.emitter._id!=identity._id">
-            <button *ngIf="follows.indexOf(message.emitter._id)<0" (click)="followUser(message.emitter._id)">
-                Seguir
-            </button>
-            <button>
-                Seguiendo
-            </button>
-            <button *ngIf="follows.indexOf(message.emitter._id)>=0" (click)="unfollowUser(message.emitter._id)">
-                Dejar de Seguir
-            </button> -->
             <div>
                 <div class="message-text">
-                    <a [routerLink]="['/mensajes/leer-mensajes', message.receiver._id]">
+                    <a [routerLink]="['/mensajes/leer-mensajes', message.receiver['_id']]">
                         Ver Mensaje
                     </a>
                 </div>
         </div>
     </div>
 </div>
-<ul>
-    <li *ngIf="page>1" ><a [routerLink]="['mensajes/enviados',userPageId, prev_page]">Anterior</a></li>
-    <li *ngIf="pages!=page" ><a [routerLink]="['mensajes/enviados',userPageId, next_page]">Siguiente</a></li>
+<ul class="nextpreview">
+    <li *ngIf="page>1" ><a [routerLink]="['/mensajes/enviados', prev_page]">Anterior</a></li>
+    <li *ngIf="pages!=page" ><a [routerLink]="['/mensajes/enviados', next_page]">Siguiente</a></li>
 </ul>

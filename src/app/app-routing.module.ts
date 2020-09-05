@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PhotoListComponent} from './components/photo-list/photo-list.component'
-import {PhotoFormComponent} from './components/photo-form/photo-form.component';
-import {PhotoPreviewComponent} from './components/photo-preview/photo-preview.component';
 import { SignupComponent} from './components/signup/signup.component';
 import { LoginComponent} from './components/login/login.component';
 import { ProfilComponent} from './components/profil/profil.component';
@@ -13,22 +10,16 @@ import { PublicationComponent } from './components/publication/publication.compo
 import { PublicateComponent } from './components/publicate/publicate.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { UserComponent } from './components/user/user.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 import {UserguardService} from './services/userguard.service'
+import { TermsComponent } from './components/terms/terms.component';
+import { PrivatepoliticsComponent } from './components/privatepolitics/privatepolitics.component';
+import { HomeComponent } from './components/home/home.component';
+import { CookiesComponent } from './components/cookies/cookies.component';
+import { HomepublicationComponent } from './components/homepublication/homepublication.component';
 
 const routes: Routes = [
-  {
-    path: 'photos',
-    component: PhotoListComponent
-  },
-  {
-    path:'photos/new',
-    component: PhotoFormComponent
-  },
-  {
-    path: 'photos/:id',
-    component: PhotoPreviewComponent
-  },
   {
     path: 'signup',
     component: SignupComponent
@@ -36,6 +27,22 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'politics',
+    component: PrivatepoliticsComponent
+  },
+  {
+    path: 'terms',
+    component: TermsComponent
+  },
+  {
+    path: 'cookies',
+    component: CookiesComponent
   },
   {
     path: 'usuario/:id',
@@ -53,9 +60,14 @@ const routes: Routes = [
     canActivate: [UserguardService]
   },
   {
-    path: 'publications',
+    path: 'publicacion/:id',
     component: PublicationComponent,
     canActivate: [AuthenticGuard]
+  },
+  {
+    path: 'home-publicacion/:id',
+    component: HomepublicationComponent
+    // canActivate: [AuthenticGuard]
   },
   {
     path: 'publicar',
@@ -73,8 +85,12 @@ const routes: Routes = [
     canActivate: [UserguardService]
   },
   {
+    path: '*',
+    component: NotfoundComponent
+  },
+  {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];

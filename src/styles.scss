@@ -1,5 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-body{
-    margin: 0;
+// body{
+//     margin: 0;
+//     // font-family: 'Dancing Script', cursive;
+//     font-family: 'Scope One', serif;
+//     background-color: rgb(246, 242, 250);
+//     // height: 100%;
+//     app-root{
+//         router-outlet{
+//             height: 90%;
+//         }
+        
+//         app-header{
+//           width: 100%;
+//         }
+//     }
+// }
+// html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    app-root{
+                router-outlet{
+                    height: 90%;
+                }
+                
+                app-header{
+                  width: 100%;
+                }
+            }
 }

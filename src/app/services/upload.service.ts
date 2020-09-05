@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment.prod';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ export class UploadService {
   identity: string;
   token: string;
   stats: any;
-  private URL = 'http://localhost:3500/api';
+  private URL = environment.URL;
   constructor() { }
   makeFileRequest(url:string, params:Array<string>, files:Array<File>,token: string, name:string){
     return new Promise(function(resolve, reject){

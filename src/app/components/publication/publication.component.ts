@@ -19,40 +19,47 @@ export class PublicationComponent implements OnInit {
   public pages;
   public itemsPerPage;
   public publications: Publication[];
+  error500;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private publicationService: PublicationService
   ) { 
-    // this.identity = this.userService.getIdentity();
-    // this.user=this.identity;
-    // this.token = this.userService.getToken();
-    
+    this.identity = this.userService.getIdentity();
     this.page = 1;
   }
 
   ngOnInit() {
-    //this.getPublication(this.token,this.user._id,this.page);
+    this.loadPage();
   }
-
-  // getPublication(token,user, page, adding=false){
-  //   console.log(user)
-  //   this.publicationService.getPublicationsUser(token,user,page).subscribe(
-  //     res=>{
-  //       console.log(res);
-        
-
-  //     },
-  //     err=>{
-  //       const errorMessage = err;
-  //       console.log(errorMessage);
-  //       if(errorMessage!=null){
-  //         this.status= 'error'
-  //       }
-  //     }
-  //   )
-  // }
-
-
+   loadPage(){
+    this.route.params.subscribe(params=>{
+      let id = params['id'];
+      this.getPublicationById(this.token, id)
+    }
+      
+    )
+  }
+  
+  getPublicationById(token, id){
+    console.log(id)
+    this.publicationService.getPublicationById(token, id).subscribe(
+      (res:any)=>{
+       console.log(res);
+        this.publications=res['publication'];
+      },
+      err=>{
+       console.log(err);
+       if(err.status ===500){
+        console.log("error awi")
+        this.error500=err.status
+      }
+      }
+    )
+  }
 }
+
+
+
+

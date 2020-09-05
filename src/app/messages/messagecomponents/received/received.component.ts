@@ -37,20 +37,20 @@ export class ReceivedComponent implements OnInit {
   actualPage(){
     this.route.params.subscribe(params =>{
       
-      // let page = +params['page'];
-      // this.page = page;
-      // if(!params['page']){
-      //   page=1
-      // }
-      // if(!page){
-      //   page = 1
-      // }else{
-      //   this.next_page=page+1;
-      //   this.prev_page=page-1;
-      //   if(this.prev_page<=0){
-      //     this.prev_page=1;
-      //   }
-      // }
+      let page = +params['page'];
+      this.page = page;
+      if(!params['page']){
+        page=1
+      }
+      if(!page){
+        page = 1
+      }else{
+        this.next_page=page+1;
+        this.prev_page=page-1;
+        if(this.prev_page<=0){
+          this.prev_page=1;
+        }
+      }
       this.getMessages(this.token, this.page);
     });
   }
@@ -58,15 +58,13 @@ export class ReceivedComponent implements OnInit {
     this.messagesService.getMessages(token, page).subscribe(
       res=>{
         
-        if(!res.messages){
-          
+        if(!res['messages']){
+        this.status="error"
           
         }else{
-          console.log(res)
-          this.messages = res.messages;
-          console.log(this.messages)
-          this.total = res.total;
-          this.pages = res.pages;
+          this.messages = res['messages'];
+          this.total = res['total'];
+          this.pages = res['pages'];
         }
       },
       err=>{

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessagesService {
-  private URL = 'http://localhost:3500/api'
+  private URL = environment.URL
   constructor(private http: HttpClient) { }
   addMessage(token, message){
     let params = JSON.stringify(message);
@@ -28,5 +29,10 @@ export class MessagesService {
     let headers = new HttpHeaders().set('Content-Type', 'application/json')
                                     .set('Authorization', token);
     return this.http.get(this.URL + '/messages/'+page, {headers: headers});
+  }
+  getUnreedMessages(token, page=1){
+    let headers = new HttpHeaders().set('Content-Type', 'application/json')
+                                    .set('Authorization', token);
+    return this.http.get(this.URL + '/message-unread', {headers: headers});
   }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoFormComponent } from './photo-form.component';
+import { PrivatepoliticsComponent } from './privatepolitics.component';
 
-describe('PhotoFormComponent', () => {
-  let component: PhotoFormComponent;
-  let fixture: ComponentFixture<PhotoFormComponent>;
+describe('PrivatepoliticsComponent', () => {
+  let component: PrivatepoliticsComponent;
+  let fixture: ComponentFixture<PrivatepoliticsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoFormComponent ]
+      declarations: [ PrivatepoliticsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PhotoFormComponent);
+    fixture = TestBed.createComponent(PrivatepoliticsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

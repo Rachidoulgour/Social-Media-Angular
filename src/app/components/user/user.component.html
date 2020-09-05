@@ -1,23 +1,28 @@
-
+<div class="user">
 <div *ngIf="user" class="user-data">
     <div class="profile-avatar">
         <img [src]="'http://localhost:3500/'+user.avatar" *ngIf="user.avatar">
         <img [src]="'assets/no-image.png'" *ngIf="!user.avatar">
     </div>
     <div class="datauser">
-        <p><span class="username">{{user.username}}</span></p> 
-    <p>{{user.email}}</p>
+        <p><span class="username">{{user.username.toUpperCase()}}</span></p> 
+        <p><span class="email">{{user.email}}</span> </p>
     </div>
 </div>
-<div *ngIf="publications">
+<div *ngIf="publications" class="publications">
     <div *ngFor="let publication of publications" class="publication">
-        <div class="publisher">
-            <h4>
-                    {{publication.user.username}}
-            </h4>
-        </div>
-        <div class="text">
-            <p>{{publication.text}}</p>
-        </div>
+        <a [routerLink]="['/publicacion', publication['_id']]">
+            <h2>{{publication.title}}</h2>
+            <div class="image" *ngIf="publication.file!='null'">
+                <img [src]="'http://localhost:3500/'+publication.file">
+            </div>
+            <div class="text">
+                <p>{{publication.title}}</p>
+                <p>{{publication.genre}}</p>
+                <p>{{publication.city}}</p>
+            </div>
+        </a>
+        
     </div>
     </div>
+</div>

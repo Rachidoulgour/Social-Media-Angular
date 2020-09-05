@@ -30,7 +30,6 @@ export class SendedComponent implements OnInit {
   ) { 
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
-    // this.message = new Message('','','','',this.identity._id,'');
   }
 
   ngOnInit(): void {
@@ -39,36 +38,33 @@ export class SendedComponent implements OnInit {
   actualPage(){
     this.route.params.subscribe(params =>{
       
-      // let page = params['page'];
-      // this.page = page;
-      // if(!params['page']){
-      //   page=1
-      // }
-      // if(!page){
-      //   page = 1
-      // }else{
-      //   this.next_page=page+1;
-      //   this.prev_page=page-1;
-      //   if(this.prev_page<=0){
-      //     this.prev_page=1;
-      //   }
-      // }
+      let page = +params['page'];
+      this.page = page;
+      if(!params['page']){
+        page=1
+      }
+      if(!page){
+        page = 1
+      }else{
+        this.next_page=page+1;
+        this.prev_page=page-1;
+        if(this.prev_page<=0){
+          this.prev_page=1;
+        }
+      }
       this.getMessages(this.token, this.page);
     });
   }
   getMessages(token, page){
     this.messagesService.getEmmitMessages(token, page).subscribe(
       res=>{
-        console.log(res)
         if(!res){
-          console.log(res)
+          this.status= "error"
           
         }else{
-          console.log(res)
-          this.messages = res.messages;
-          console.log(this.messages)
-          // this.total = res.total;
-          // this.pages = res.pages;
+          this.messages = res['messages'];
+          this.total = res['total'];
+          this.pages = res['pages'];
         }
       },
       err=>{

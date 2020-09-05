@@ -1,3 +1,5 @@
+
 export const environment = {
-  production: true
+   production: true,
+   URL: "https://www.coenzym.org:3500/api"
 };

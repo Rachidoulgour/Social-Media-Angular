@@ -11,16 +11,15 @@ import { User } from '../../interfaces/User';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  public identity: any;
-  public token:string;
-  public page;
-  public next_page;
-  public prev_page;
-  public status:string;
-  public total;
-  public pages;
-  public users: User[];
-  public follows;
+  identity: any;
+  token:string;
+  page;
+  next_page;
+  prev_page;
+  status:string;
+  total;
+  pages;
+  users: User[];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -56,19 +55,14 @@ export class UsersComponent implements OnInit {
   getUsers(page){
     this.userService.getUsers(page).subscribe(
       (res:any)=>{
-        console.log(res)
-        // if(!res.users){
-        //   this.status = 'error';
         if(!res){
           this.status = 'error';
         }else{
-          console.log(res)
-          this.total = res.total;
+          this.total = res['total'];
           console.log(this.total)
-          this.users = res.users;
+          this.users = res['users'];
           console.log(this.users)
-          this.pages = res.pages;
-          // this.follows = res.users_following;
+          this.pages = res['pages'];
           if(page>this.pages){
             this.router.navigate(['/gente', 1]);
           }

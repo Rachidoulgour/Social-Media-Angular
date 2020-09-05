@@ -1,0 +1,50 @@
+<div class="timeline">
+    <p>Registrate o inicia sesión</p>
+    <div *ngIf="!publications" class="spinner">
+        <img [src]="'assets/spinner.png'" *ngIf="!publications">
+        <mat-spinner class="mat-spinner"></mat-spinner>
+    </div>
+    <div *ngIf="publications" class="publication-section">
+    <div *ngFor="let publication of publications" class="publication">
+        <div class="publisher-section">
+            <div class="publisher">
+                <h4>
+                    <a [routerLink]="['/usuario', publication.user['_id']]">
+                        {{publication.user['username'].toUpperCase()}}
+                    </a>
+                </h4>
+            </div>
+        </div>
+        
+        <div class="myPub">
+            <a [routerLink]="['/publicacion', publication['_id']]">
+                
+                <div class="image" *ngIf="publication.file!='null'">
+                    <img [src]="publication.file">
+                </div>
+                
+                
+                <div class="text">
+                    <h2>{{publication.title}}</h2>
+                    <p>{{publication.genre}}</p>
+                    <p>{{publication.city}}</p>
+                    <div class="created">
+                        <p>{{(publication.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+        
+    </div>
+    
+    
+    </div>
+    <button class="seemore" (click)="viewMore()" *ngIf="!noMore ! && publications">
+        Ver más
+    </button>
+    <div class="error500" *ngIf="error500">
+        <p>Algo ha ido mal</p>
+    </div>
+    </div>
+    

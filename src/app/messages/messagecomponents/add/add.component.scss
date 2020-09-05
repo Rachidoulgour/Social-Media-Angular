@@ -37,3 +37,17 @@
         }
     }
 }
+@media screen and (max-width: 50rem){
+    .messageForm{
+        .form{
+            p{
+                textarea{
+                    width: 80vw;
+                }
+            }
+            button{
+                min-width: 3.5rem;
+            }
+        }
+    }
+}

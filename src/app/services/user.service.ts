@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { Router } from '@angular/router';
 import { User } from '../interfaces/User';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,10 @@ export class UserService {
   identity: string;
   token: string;
   stats: any;
-  private URL = 'http://localhost:3500/api'
+  private URL =environment.URL
   constructor(private http: HttpClient, private router: Router) { }
   signUp(user){
+    console.log(this.URL)
     return this.http.post<any>(this.URL + '/signup', user)
   }
   login(user){
@@ -48,7 +50,6 @@ export class UserService {
     return this.http.get(this.URL + '/users/'+page, {headers: headers});
   }
   getUser(id){
-    console.log(id)
     let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.getToken())
     return this.http.get(this.URL + '/user/'+id, {headers: headers});
   }

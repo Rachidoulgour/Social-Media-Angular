@@ -1,6 +1,8 @@
 .navigation{
     display: flex;
-    background-color: rgba(145, 43, 119, 0.322);
+    //background-color: rgb(150, 16, 173);
+    background-color: rgb(8, 170, 235);
+    justify-content: space-around;
     nav{
         display: flex;
         flex-direction: row;
@@ -12,9 +14,11 @@
             li{
                 all: unset;
                 margin: .1rem 1rem;
-                a{
+                color: #ffee05;
+                .navigate{
                     text-decoration: none;
-                    color: #ffffff;
+                    font-size: 1rem;
+                    color: #ffee05;
                     font-size: 1.5rem;
                     padding: .4rem .5rem;
                     &:hover {
@@ -22,9 +26,61 @@
                         padding: .4rem .5rem;
                         transition: ease .3s;
                     }
+                    .navtitle{
+                        margin: 0 0 .4rem .2rem;
+                    }
+                }
+                .navigate.active{
+                    background-color: rgb(228, 218, 236);
                 }
             }
         }
     }
+    p{
+        color: #ffee05;
+        font-size: 2rem;
+        font-family: 'Dancing Script', cursive;
+        margin: 0;
+        padding-top: .5rem;
+    }
     
+}
+@media screen and(max-width:640px){
+    .navigation{
+        display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+        nav{
+            ul{
+                display: flex;
+                align-items: center;
+                padding-inline-start:0;
+                li{
+                    all: unset;
+                    margin: .1rem .05rem;
+                    a{
+                        text-decoration: none;
+                        color: #ffee05;
+                        font-size: .8rem;
+                        padding: .4rem .2rem;
+                        &:hover {
+                            background-color: rgb(228, 218, 236);
+                            padding: .4rem .2rem;
+                            transition: ease .3s;
+                        }
+                        mat-icon{
+                            margin: 0 .5rem;
+                        }
+                        .navtitle{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        p{
+            display: none;
+        }   
+    }
 }

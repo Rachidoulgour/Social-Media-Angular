@@ -45,13 +45,9 @@ export class UserComponent implements OnInit {
   getUser(id){
     this.userService.getUser(id).subscribe(
       res=>{
-        console.log(res)
         this.user = res;
-        console.log(this.user);
-        
       },
       err=>{
-        console.log(err);
         this.router.navigate(['/perfil', this.identity._id]);
       }
     )
@@ -59,9 +55,8 @@ export class UserComponent implements OnInit {
   getUserPublication(token, id, page){
     this.publicationService.getPublicationsUser(token, id, page).subscribe(
       (res:any)=>{
-       console.log(res);
-       this.total=res.total_items;
-       this.pages = res.pages;
+       this.total=res['total_items'];
+       this.pages = res['pages'];
        this.publications=res.publications;
       },
       err=>{

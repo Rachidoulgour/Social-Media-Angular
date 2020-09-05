@@ -33,3 +33,48 @@ h3{
         }
     }
 }
+
+@media screen and (max-width: 76rem){
+    .people{
+        .itemuser{
+            margin: .3rem .55rem;
+            .users{
+                display: flex;
+                a{
+                    padding: .03rem .1rem;
+                }
+                p{
+                    margin: 0;
+                    padding: .3rem .1rem;
+                }
+                
+            }
+            .message-text{
+                a{
+                    padding: .3rem 1rem;
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+}
+.nextpreview{
+    li{
+        all: unset;
+        a{       
+        text-decoration: none;
+        color: white;
+        text-align: center;
+            border: solid 1px blueviolet;
+            background-color: blueviolet;
+            margin-top: .5rem;
+            padding: .4rem .5rem;
+            width: 10vw;
+            &:hover {
+                background-color: rgba(145, 43, 119, 0.322);
+                color: blueviolet;
+                transition: ease .3s;
+            }
+        }
+    }
+}

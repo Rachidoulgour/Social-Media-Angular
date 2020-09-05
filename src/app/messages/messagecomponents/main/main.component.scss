@@ -13,8 +13,6 @@
         
             display: flex;
             flex-direction: row;
-            
-            
             li{
                 all: unset;
                 margin: .1rem 1rem;
@@ -34,4 +32,29 @@
         }
     }
     
+}
+@media screen and (max-width: 76rem){
+    .navigation{      
+        margin:2vh 2vw;
+        .nav{
+            flex-direction: row;
+            
+            ul{
+                flex-direction: row;
+                padding-inline-start: 0;
+                li{
+                    all: unset;
+                    margin: .05rem 2vw;
+                    a{
+                        text-decoration: none;
+                        color: #ffffff;
+                        background-color: rgba(145, 43, 119, 0.322);
+                        font-size: 1rem;
+                        padding: .4rem .5rem;
+                    }
+                }
+            }
+        }
+        
+    }
 }

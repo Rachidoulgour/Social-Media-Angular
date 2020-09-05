@@ -40,10 +40,7 @@ export class AddComponent implements OnInit {
   getUser(id){
     this.userService.getUser(id).subscribe(
       res=>{
-        console.log(res)
-        this.user=res
-        console.log(this.user._id)
-        
+        this.user=res  
       },
       err=>{
         console.log(err);
@@ -52,11 +49,9 @@ export class AddComponent implements OnInit {
     )
   }
   onSubmit(){
-    console.log("This message",this.message);
     this.messagesService.addMessage(this.token, this.message).subscribe(
       res=>{
         if(res){
-          console.log(res)
           this.router.navigate(['/mensajes/enviados'])
         }
       },

@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MomentModule } from 'ngx-moment';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { MessagesModule } from './messages/messagecomponents/messages.module'
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { PhotoFormComponent } from './components/photo-form/photo-form.component';
-import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
-import { PhotoListComponent } from './components/photo-list/photo-list.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfilComponent } from './components/profil/profil.component';
@@ -28,16 +28,21 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {UserService} from './services/user.service'
-import {UserguardService} from './services/userguard.service'
+import {UserguardService} from './services/userguard.service';
+import { TermsComponent } from './components/terms/terms.component';
+import { PrivatepoliticsComponent } from './components/privatepolitics/privatepolitics.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { CookiesComponent } from './components/cookies/cookies.component'
+import { MaterialModule } from './material/material.module';
+import { HomepublicationComponent } from './components/homepublication/homepublication.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    PhotoFormComponent,
-    PhotoPreviewComponent,
-    PhotoListComponent,
     SignupComponent,
     LoginComponent,
     ProfilComponent,
@@ -48,11 +53,13 @@ import {UserguardService} from './services/userguard.service'
     TimelineComponent,
     Delete,
     UserComponent,
-    //ReadmessageComponent,
-    // AddComponent,
-    // MainComponent,
-    // ReceivedComponent,
-    // SendedComponent
+    TermsComponent,
+    PrivatepoliticsComponent,
+    HeaderComponent,
+    HomeComponent,
+    NotfoundComponent,
+    CookiesComponent,
+    HomepublicationComponent,
     
   ],
   imports: [
@@ -64,7 +71,10 @@ import {UserguardService} from './services/userguard.service'
     OverlayModule,
     BrowserAnimationsModule,
     MessagesModule,
-    MomentModule
+    MomentModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MaterialModule,
   ],
   providers: [
     UserService,

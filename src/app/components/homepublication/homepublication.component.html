@@ -1,0 +1,29 @@
+<div class="publiction-page" *ngIf="publications">
+    <div class="publisher-section">
+        
+        <p>{{publications['user'].username.toUpperCase()}}</p>
+        <div *ngIf="publications['user']['_id']!=identity._id" class="messageSend">
+            <a [routerLink]="['/mensajes/enviar', publications['user']['_id']]">
+                Enviar Mensaje
+            </a>
+        </div>
+        
+    </div>
+    <div class="publication-section">
+        <h2>{{publications['title']}}</h2>
+        <div class="image" *ngIf="publications['file']!='null'">
+            <img [src]="publications['file']">
+        </div>
+        <div class="text">
+            <p>{{publications['genre']}}</p>
+            <p>{{publications['city']}}</p>
+            <p>{{publications['text']}}</p>
+        </div>
+        
+        
+    </div>
+</div>
+<div class="error500" *ngIf="error500">
+    <p>Algo ha ido mal</p>
+</div>
+

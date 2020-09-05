@@ -1,46 +1,36 @@
 
 <div class="navigation">
+    
     <nav>
-        <!-- <ul>
-            <li>
-                <a routerLink="/photos">Mis Fotos</a>
-            </li>
-            
-        </ul> -->
         <ul>
             <ng-container *ngIf="!userService.loggedIn(); else loggedIn">
                 <li>
-                    <a routerLink="/signup">Registrarse</a>
+                    <a class="navigate" [class.active]="isActive" routerLink="/home"><mat-icon>home</mat-icon><span class="navtitle">Inicio</span></a>
                 </li>
                 <li>
-                    <a routerLink="/login">Entrar</a>
+                    <a class="navigate" [class.active]="isActive" routerLink="/signup">Registrarse</a>
+                </li>
+                <li>
+                    <a class="navigate" [class.active]="isActive" routerLink="/login"><mat-icon>login</mat-icon><span class="navtitle">Entrar</span></a>
                 </li>
             </ng-container>
             <ng-template #loggedIn>
-                <!-- <li>
-                    <a routerLink="/photos/new">Cargar Foto</a>
-                </li> -->
                 <li>
-                    <a routerLink="/timeline">Timeline</a>
+                    <a class="navigate" [class.active]="isActive" routerLink="/timeline"><mat-icon>home</mat-icon> <span class="navtitle">Timeline</span></a>
+                </li> 
+                <li>
+                    <a class="navigate" [class.active]="isActive" routerLink="/perfil"><mat-icon>person</mat-icon> <span class="navtitle">Perfil</span></a>
                 </li>
                 <li>
-                    <a routerLink="/usuarios">Gente</a>
+                    <a class="navigate" [class.active]="isActive" routerLink="/mensajes">
+                        <mat-icon>mail_outline</mat-icon> <span class="navtitle">Mensajes </span>
+                    </a>
                 </li>
                 <li>
-                    <a routerLink="/login" (click)="userService.logOut()">Salir</a>
-                </li>
-                <li>
-                    <a routerLink="/perfil">Perfil</a>
-                </li>
-                <li>
-                    <a routerLink="/mensajes">Mensajes</a>
+                    <a class="navigate" [class.active]="isActive" routerLink="/login" (click)="userService.logOut()"><mat-icon>exit_to_app</mat-icon> <span class="navtitle">Salir</span></a>
                 </li>
             </ng-template>
-                   
-            
-            <ul>
-
-            </ul>
         </ul>
     </nav>
+    <p>CoEnzym</p>
 </div>

@@ -21,7 +21,8 @@ const messagesRoutes:Routes = [
             {path: 'recibidos/:page', component: ReceivedComponent, canActivate: [UserguardService]},
             {path: 'enviados', component: SendedComponent, canActivate: [UserguardService]},
             {path: 'enviados/:page', component: SendedComponent, canActivate: [UserguardService]},
-            {path: 'leer-mensajes/:emitterid', component: ReadmessageComponent, canActivate: [UserguardService]}
+            {path: 'leer-mensajes/:emitterid', component: ReadmessageComponent, canActivate: [UserguardService]},
+            {path: 'leer-mensajes/:emitterid/:page', component: ReadmessageComponent, canActivate: [UserguardService]}
         ]
 }
 ];

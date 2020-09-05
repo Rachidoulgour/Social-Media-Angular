@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { PublicationService} from '../../services/publication.service'
 import { Publication } from 'src/app/interfaces/publication';
+import { MessagesService } from 'src/app/services/messages.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-profil',
@@ -20,13 +22,15 @@ export class ProfilComponent implements OnInit {
   total: any;
   pages: any;
   publications:Publication[];
+  unreed: number;
+  URL =environment.URL;
 
   constructor(
     private userService:UserService,
     private publicationService:PublicationService, 
-    // private followSrtvice:FollowService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private messagesService:MessagesService
   ) { 
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
@@ -38,42 +42,20 @@ export class ProfilComponent implements OnInit {
   }
   loadPage(){
     this.route.params.subscribe(params=>{
-      //let id = params['id'];
       let id= this.identity._id
       let user_id = id;
-      //let id = user._id
-      console.log(params)
       this.getUser(id);
-      //this.getCounters(id);
       this.getUserPublication(this.token, user_id, this.page)
     }
       
     )
+    this.getUnreedMessages(this.token);
   }
   getUser(id){
     this.userService.getUser(id).subscribe(
       res=>{
         console.log(res)
         this.user = res;
-        console.log(this.user);
-        // if(res.user){
-        //   this.user = res.user
-
-        //   if(res.following && res.following._id){
-        //     this.following = true;
-        //   }else{
-        //     this.following = false;
-        //   }
-
-        //   if(res.followed && res.followed._id){
-        //     this.followed = true;
-        //   }else{
-        //     this.followed = false;
-        //   }
-        // }else{
-        //   this.status = 'error';
-        // }
-
       },
       err=>{
         console.log(err);
@@ -84,9 +66,8 @@ export class ProfilComponent implements OnInit {
    getUserPublication(token, user_id, page){
      this.publicationService.getPublicationsUser(token, user_id, page).subscribe(
        (res:any)=>{
-        console.log(res);
         this.total=res.total_items;
-        this.pages = res.pages;
+        this.pages = res['pages'];
         this.publications=res.publications;
        },
        err=>{
@@ -94,6 +75,15 @@ export class ProfilComponent implements OnInit {
        }
      )
    }
-  
+   getUnreedMessages(token){
+    this.messagesService.getUnreedMessages(token).subscribe(
+      res=>{
+        this.unreed = +res['unviewed'];
+      },
+      err=>{
+        console.log(err)
+      }
+    );
+  }
 
 }

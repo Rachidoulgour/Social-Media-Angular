@@ -1,17 +1,19 @@
+<div class="profil">
 <div class="buttons">
     <p><button [routerLink]="['/publicar']">Publicar</button></p>
+    <button *ngIf="unreed>0" class="btn-message" [routerLink]="['/mensajes/recibidos']"><span class="tienes">Tienes</span> {{unreed}} <span class="tienes">mensajes</span></button>
     <p><button [routerLink]="['/editar-perfil']">Editar Perfil</button></p>
 </div>
 
 <h3>Mis Datos</h3>
 <div *ngIf="user" class="user-data">
-    <div class="profile-avatar">
-        <img [src]="'http://localhost:3500/'+user.avatar" *ngIf="user.avatar">
+    <!-- <div class="profile-avatar">
+        <img [src]="URL+'/'+user.avatar" *ngIf="user.avatar">
         <img [src]="'assets/no-image.png'" *ngIf="!user.avatar">
-    </div>
+    </div> -->
     <div class="datauser">
         <p><span class="username">{{user.username}}</span></p> 
-    <p>{{user.email}}</p>
+        <p class="user-email">{{user.email}}</p>
     </div>
 </div>
 <div *ngIf="publications">
@@ -19,13 +21,17 @@
 <div *ngFor="let publication of publications" class="publication">
     <div class="publisher">
         <h4>
-                {{publication.user.username}}
+                {{publication.user['username']}}
         </h4>
+    </div>
+    <div class="image" *ngIf="publication.file!='null'">
+        <img [src]="publication.file">
     </div>
     <div class="text">
         <p>{{publication.text}}</p>
     </div>
 </div>
 </div>
+</div>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

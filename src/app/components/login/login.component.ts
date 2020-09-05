@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  error404;
   user={
     email: "",
     password: ""
@@ -22,15 +22,15 @@ export class LoginComponent implements OnInit {
     console.log(this.user)
     this.userService.login(this.user).subscribe(
       res=>{
-        console.log(res.user);
         localStorage.setItem('token', res.token);
-        console.log(res.token)
         localStorage.setItem('user', JSON.stringify(res.user));
-        //this.getCounters();
         this.router.navigate(['/perfil'])
       },
       err=>{
         console.log(err)
+        if(err.status === 404){
+          this.error404=err.status
+        }
       }
     )
   }

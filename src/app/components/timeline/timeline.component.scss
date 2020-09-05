@@ -1,25 +1,56 @@
+.timeline{
+    display: flex;
+    flex-direction: column;
+    height:80%;
+    margin-bottom: 20vh;
+    width: 100vw;
+    margin: 0 0 1rem 0;
+    .covid-section{
+        align-self: center;
+        border: solid .05rem crimson;
+        border-radius: 1rem;
+        text-align: center;
+        width:40vw;
+        margin-top: .3rem;
+    }
+
 .btn-publicate{
     all: unset;
-    background-color: rgb(4, 4, 77);
+    width: 4rem;
+    background-color: rgb(8, 170, 235);
     color: white;
+    text-align: center;
     padding: .2rem .5rem;
-    margin: 2rem 0 1rem 15rem;
+    margin: 2rem 0 1rem 2rem;
     
     &:hover{
-        background-color: rgb(163, 163, 163);
+        background-color: rgba(0, 194, 253, 0.657);
         color: rgb(4, 4, 77);
         cursor: pointer;
         transition: ease .3s;
     
     }
 }
+@media screen and(max-width:640px){
+    .btn-publicate{
+        margin: .5rem 0 .5rem .5rem;
+    }
+}
+.publication-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 .publication{
+
     border-top: .05rem solid rgb(4, 4, 77);
     padding: 0rem .5rem;
-    margin: 1rem 15rem;
+    margin: 1rem 1rem;
+    width: 20rem;
+    
     .publisher-section{
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         
         
@@ -44,8 +75,10 @@
             margin-bottom: 2rem;
             h4{
                 margin-left: 1rem;
+                
                 a{
                     text-decoration: none;
+                    color: rgb(4, 4, 77);
                 }
             }
             .profile-avatar{
@@ -64,19 +97,29 @@
                 height: 3rem;
                 align-items: center;
                 a{
+                    display: flex;
+                    flex-direction: row;
                 all: unset;
                 color: white;
                 text-align: center;
-                border: solid 1px blueviolet;
-                background-color: blueviolet;
+                // border: solid 1px blueviolet;
+                // background-color: blueviolet;
+                border: solid 1px rgb(3, 184, 18);
+                background-color: rgb(3, 184, 18);
                 margin-top: .5rem;
-                padding: .4rem .5rem;
-                width: 10vw;
+                padding: .3rem .3rem;
+                width: 6rem;
                 &:hover {
                     cursor: pointer;
-                    background-color: rgba(145, 43, 119, 0.322);
-                    color: blueviolet;
+                    background-color: rgba(3, 184, 18, 0.561);
+                    //color: blueviolet;
                     transition: ease .3s;
+                }
+                .maticon{
+                    margin: 0;
+                }
+                p{
+                    margin: 0;
                 }
             }
             }
@@ -85,25 +128,47 @@
     
     .myPub{
         border: .05rem solid #7a7a94;
-        .image{
-            display: flex;
-            justify-content: center;
-            margin-bottom: .5rem;
-            padding: .5rem .5rem;
-            
-            img{
-                max-width: 30rem;
-                text-align: center;
+        padding: 1%;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        transition: all .3s;
+        overflow: hidden;
+        a{
+            text-decoration: none;
+            h2{
+                width: 36vw;
+                color: rgb(150, 16, 173);
+            }
+            .image{
+                display: flex;
+                justify-content: center;               
+                img{
+                    max-width: 20rem;
+                    text-align: center;
+                }
+            }
+            .text{
+                margin: .5rem .5rem;
+                padding: 0rem .5rem;
+                .created{
+                    font-size: .7rem;
+                    p{
+                        mat-icon{
+                            padding: 0;
+                            font-size: .8rem;
+                            margin: 0;
+                        }
+                    }
+                }
             }
         }
-        .text{
-            // border: .05rem solid #7a7a94;
-            margin: .5rem .5rem;
-            padding: 0rem .5rem;
+        &:hover{
+            transform: translateY(-15px);
+            box-shadow: 0 12px 15px rgba(0, 0, 0, 0.2);
         }
     }
     
 }
+
 .cancel-btn{
     all: unset;
     color: #a03535;
@@ -116,14 +181,161 @@
     }
 }
 .eliminar-btn{
+        all: unset;
+        color: #ffffff;
+        background-color: #a03535;
+        border: solid .01rem #a03535;
+        margin-right: .3rem;
+        padding: .3rem .8rem;
+        &:hover{
+            cursor: pointer;
+            background-color: #ee5a5a;
+        }
+    
+    }
+}
+}
+
+
+@media screen and (max-width: 50rem){
+    .covid-section{
+        align-self: center;
+        border: solid .05rem crimson;
+        border-radius: .5rem;
+        text-align: center;
+        width:90vw !important;
+        margin-top: .3rem;
+    }
+    .publication-section{
+        display: flex;
+        flex-wrap: wrap;
+    .publication{
+        padding: 0rem .05rem;
+        margin: 1vh 2vw !important;
+        width: 40vw;
+        
+        .publisher-section{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            
+            
+            .delete-btn{
+                margin-top: .5rem;
+                margin-bottom: .5rem;
+                    button{
+                        all: unset;
+                        color: #ffffff;
+                        background-color: #a03535;
+                        border: solid .01rem #a03535;
+                        margin-right: .3rem;
+                        padding: .3rem .8rem;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: #ee5a5a;
+                        }
+                        span{
+                            display: none;
+                        }
+                    }
+            }
+            .publisher{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: .2rem !important ;
+                h4{
+                    margin: .3rem;
+                    font-size: .8rem;
+                    max-width: 30vw;
+                }
+                .profile-avatar{
+        
+                    img{
+                        max-width: 4rem;
+                        margin-left: .1rem;
+                        padding-top: 1.5rem;
+                        
+                    }
+                    
+                }
+                .messageSend{
+                    display: flex;
+                    margin: 0 0 0 .8rem !important;
+                    height: 3rem;
+                    align-items: center;
+                    a{
+                    all: unset;
+                    color: white;
+                    text-align: center;
+                    border: solid 1px blueviolet;
+                    background-color: blueviolet;
+                    margin-top: .1rem;
+                    padding: .2rem .2rem;
+                    width: 4rem;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: rgba(145, 43, 119, 0.322);
+                        color: blueviolet;
+                        transition: ease .3s;
+                    }
+                }
+                }
+            }
+        }
+        
+        .myPub{
+            border-radius: .3rem;
+            a{
+                display: flex;
+            
+            .image{
+                
+                padding: .03rem .03rem;
+                margin: 0;
+                
+                img{
+                    width: 25vw;
+                    margin-right: .5rem;
+                }
+            }
+            
+            @media screen and (max-width: 50rem){
+                .text{
+                    font-size: .8rem;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    h2{
+                        width: 36vw;
+                        font-size: 1rem;
+                        color: rgb(150, 16, 173);
+                    }
+                    p{
+                        margin:0;
+                    }
+                }
+        }
+        }}
+        
+    }
+}
+}
+.seemore{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
     all: unset;
-    color: #ffffff;
-    background-color: #a03535;
-    border: solid .01rem #a03535;
-    margin-right: .3rem;
-    padding: .3rem .8rem;
-    &:hover{
-        cursor: pointer;
-        background-color: #ee5a5a;
+    color: white;
+    text-align: center;
+    border: solid 1px blueviolet;
+    background-color: blueviolet;
+    margin-top: .5rem;
+    margin-left: 10vw;
+    padding: .4rem .5rem;
+    width: 4rem;
+    &:hover {
+    cursor: pointer;
+    background-color: rgba(145, 43, 119, 0.322);
+    color: blueviolet;
+    transition: ease .3s;
     }
 }

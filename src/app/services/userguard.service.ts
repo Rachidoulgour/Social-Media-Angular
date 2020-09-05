@@ -12,7 +12,7 @@ export class UserguardService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean{
     let identity = this.userService.getIdentity()
-    if(identity && (identity.role=="ROLE_USER" || identity.role=="ROLE_ADMIN")){
+    if(identity && (identity['role']=="ROLE_USER" || identity['role']=="ROLE_ADMIN")){
       return true;
     }else{
       this.router.navigate(['/login'])
