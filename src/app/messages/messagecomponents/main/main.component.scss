@@ -1,3 +1,4 @@
+navigation{
 .navigation{
     display: flex;
     border: solid .02rem rgba(145, 43, 119, 0.322);
@@ -32,6 +33,7 @@
         }
     }
     
+}
 }
 @media screen and (max-width: 76rem){
     .navigation{      

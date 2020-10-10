@@ -37,6 +37,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CookiesComponent } from './components/cookies/cookies.component'
 import { MaterialModule } from './material/material.module';
 import { HomepublicationComponent } from './components/homepublication/homepublication.component';
+import { ValidatepassComponent } from './components/validatepass/validatepass.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { HomepublicationComponent } from './components/homepublication/homepubli
     NotfoundComponent,
     CookiesComponent,
     HomepublicationComponent,
+    ValidatepassComponent,
     
   ],
   imports: [

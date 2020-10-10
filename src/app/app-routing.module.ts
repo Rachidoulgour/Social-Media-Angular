@@ -18,11 +18,16 @@ import { PrivatepoliticsComponent } from './components/privatepolitics/privatepo
 import { HomeComponent } from './components/home/home.component';
 import { CookiesComponent } from './components/cookies/cookies.component';
 import { HomepublicationComponent } from './components/homepublication/homepublication.component';
+import { ValidatepassComponent } from './components/validatepass/validatepass.component';
 
 const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'validate',
+    component: ValidatepassComponent
   },
   {
     path: 'login',

@@ -19,6 +19,11 @@
             width: 30vw;
             padding: .1rem;
         }
+        .inputs{
+            .error{
+                color: red;
+            }
+        }
         .checkbox{
             border: .01rem solid black;
             padding: 0;
@@ -48,6 +53,10 @@
         form{
             display: flex;
             width: 80vw;
+            margin: 5rem 0;
+            h2{
+                margin: .5rem 0;
+            }
             .inputs{
                 display: flex;
                 flex-direction: column;

@@ -1,0 +1,14 @@
+.confirm{
+    width: 100vw;
+    height: 78vh;
+    display: flex;
+    justify-content: center;
+    img{
+        max-width: 3rem;
+        max-height: 3rem;
+    }
+    p{
+        width: 80vw;
+        text-align: center;
+    }
+}

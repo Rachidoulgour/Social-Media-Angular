@@ -5,6 +5,7 @@ export interface User{
     password: string,
     city: string,
     role: string,
-    avatar:string
+    avatar:string,
+    confirmedEmail: boolean
 
 }

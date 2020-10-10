@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <ul class="nextpreview">
+    <ul class="nextpreview" *ngIf="messages && page>1">
         <li *ngIf="page>1" ><a [routerLink]="['/mensajes/recibidos', prev_page]">Anterior</a></li>
         <li *ngIf="pages!=page" ><a [routerLink]="['/mensajes/recibidos', next_page]">Siguiente</a></li>
     </ul>

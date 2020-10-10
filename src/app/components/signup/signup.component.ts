@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   form: FormGroup;
+  message:string
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
@@ -41,9 +42,11 @@ export class SignupComponent implements OnInit {
     if (this.form.status === "VALID") {
     this.userService.signUp(this.form.value).subscribe(
       res => {
+        console.log(res)
         localStorage.setItem('token', res['token']);
         localStorage.setItem('user', JSON.stringify(res['user']))
-        this.router.navigate(['/perfil'])
+        this.router.navigate(['/validate'])
+        this.message = "success"
       },
       err =>{
         console.log(err)
